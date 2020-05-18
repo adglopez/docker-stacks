@@ -1,0 +1,7 @@
+geckodriver 
+firefox
+phantomjs
+pyspark 
+findspark
+koalas
+pytables
