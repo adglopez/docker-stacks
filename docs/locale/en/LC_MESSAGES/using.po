@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: docker-stacks latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-21 03:25+0000\n"
+"POT-Creation-Date: 2020-06-25 12:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../using/common.md:1 1d36a257919d4a368c420f8601886d81
+#: ../../using/common.md:1 9cfe0b10430e4d39826e74c86d026796
 msgid "# Common Features"
 msgstr ""
 
-#: ../../using/common.md:3 28f0e0cfbb154bbabed1a2f24230498d
+#: ../../using/common.md:3 d8c59f9af90f44acaaaac5ca4fab629f
 msgid ""
 "A container launched from any Jupyter Docker Stacks image runs a Jupyter "
 "Notebook server by default. The container does so by executing a `start-"
@@ -32,17 +32,17 @@ msgid ""
 msgstr ""
 
 # 298bc09d3aab4abcb413ad481d6242ff
-#: ../../using/common.md:5 7dee2607be474142a0d7a5abe8bfa4d7
+#: ../../using/common.md:5 4839bb42a55e475385d1a249c02b5f26
 msgid ""
 "This page describes the options supported by the startup script as well "
 "as how to bypass it to run alternative commands."
 msgstr ""
 
-#: ../../using/common.md:7 4d08ddddc70a4b1f9b716191c9ac0769
+#: ../../using/common.md:7 2882e51f1a504dd1b2f9e4b98852a577
 msgid "## Notebook Options"
 msgstr ""
 
-#: ../../using/common.md:9 cf0ea06e6dde47099ed73d5652f0d648
+#: ../../using/common.md:9 d6248783b3ef46c68b928c569beca3fc
 msgid ""
 "You can pass [Jupyter command line "
 "options](https://jupyter.readthedocs.io/en/latest/projects/jupyter-"
@@ -52,48 +52,50 @@ msgid ""
 "token, you can run the following:"
 msgstr ""
 
-#: ../../using/common.md:11 006b342fc0a6400d977a9be442510f37
+#: ../../using/common.md:11 12f13780406b4ade9fd94beb18953b71
 msgid ""
-"``` docker run -d -p 8888:8888 jupyter/base-notebook start-notebook.sh "
+"```bash docker run -d -p 8888:8888 jupyter/base-notebook start-"
+"notebook.sh "
 "--NotebookApp.password='sha1:74ba40f8a388:c913541b7ee99d15d5ed31d4226bf7838f83a50e'"
 " ```"
 msgstr ""
 
 # 4c08f057def247cbbfc8231e628cb792
-#: ../../using/common.md:15 40117b4cb8a64591991d5dfc02a588b7
+#: ../../using/common.md:15 ad860f78a06043e19584c53c13135e5f
 msgid ""
 "For example, to set the base URL of the notebook server, you can run the "
 "following:"
 msgstr ""
 
-#: ../../using/common.md:17 009f82daefe041fbba5bdfa27dbca218
+#: ../../using/common.md:17 c4a7f4a3700048d498dfa7184f5eba4d
 msgid ""
-"``` docker run -d -p 8888:8888 jupyter/base-notebook start-notebook.sh "
-"--NotebookApp.base_url=/some/path ```"
+"```bash docker run -d -p 8888:8888 jupyter/base-notebook start-"
+"notebook.sh --NotebookApp.base_url=/some/path ```"
 msgstr ""
 
-#: ../../using/common.md:21 276660deaf774a3d8c798d9e12ddf83c
+#: ../../using/common.md:21 1545f20caa924a9ca02610572ee4d032
 msgid "## Docker Options"
 msgstr ""
 
-#: ../../using/common.md:23 6344a955bb524c808febfe8b1e9b671b
+#: ../../using/common.md:23 2ab05ae44b444ac296a675590664a26c
 msgid ""
 "You may instruct the `start-notebook.sh` script to customize the "
 "container environment before launching the notebook server. You do so by "
 "passing arguments to the `docker run` command."
 msgstr ""
 
-#: ../../using/common.md:26 29a275f9e05c4b96b0ebe42630dd1f2e
+#: ../../using/common.md:26 1f13c64e18794d708c6076a0f0e53554
 msgid ""
 "`-e NB_USER=jovyan` - Instructs the startup script to change the default "
 "container username from `jovyan` to the provided value. Causes the script"
 " to rename the `jovyan` user home folder. For this option to take effect,"
-" you must run the container with `--user root` and set the working "
-"directory `-w /home/$NB_USER`. This feature is useful when mounting host "
+" you must run the container with `--user root`, set the working directory"
+" `-w /home/$NB_USER` and set the environment variable `-e CHOWN_HOME=yes`"
+" (see below for detail). This feature is useful when mounting host "
 "volumes with specific home folder."
 msgstr ""
 
-#: ../../using/common.md:27 081ba9f346d242abbe6f4d6cb571a9e2
+#: ../../using/common.md:27 f3c6a4ecec9c4f07ae9293e3be4fe28e
 msgid ""
 "`-e NB_UID=1000` - Instructs the startup script to switch the numeric "
 "user ID of `$NB_USER` to the given value. This feature is useful when "
@@ -104,7 +106,7 @@ msgid ""
 "See the last bullet below for details."
 msgstr ""
 
-#: ../../using/common.md:28 6b0e71ec401047818894168f92a6013a
+#: ../../using/common.md:28 cd21bbd348054aff871c80142805068e
 msgid ""
 "`-e NB_GID=100` - Instructs the startup script to change the primary "
 "group of`$NB_USER` to `$NB_GID` (the new group is added with a name of "
@@ -120,14 +122,14 @@ msgid ""
 " if you want them to be able to modify files in the image."
 msgstr ""
 
-#: ../../using/common.md:29 7708043a10c34a7e9925d26262e1b7e6
+#: ../../using/common.md:29 f0fe07d37ba64fd9acbcab737833607a
 msgid ""
 "`-e NB_GROUP=<name>` - The name used for `$NB_GID`, which defaults to "
 "`$NB_USER`.  This is only used if `$NB_GID` is specified and completely "
 "optional: there is only cosmetic effect."
 msgstr ""
 
-#: ../../using/common.md:30 6d43db8ed27d433e888fa105d16fcc7f
+#: ../../using/common.md:30 72e181091ab94726b03bc9e127a7acd9
 msgid ""
 "`-e NB_UMASK=<umask>` - Configures Jupyter to use a different umask value"
 " from default, i.e. `022`. For example, if setting umask to `002`, new "
@@ -141,7 +143,7 @@ msgid ""
 "you need to set a umask for these you must set `umask` for each command."
 msgstr ""
 
-#: ../../using/common.md:31 6b8d0a420ac64a0b9094438ad1cfd27c
+#: ../../using/common.md:31 0faa471bbef945d98043456127e451a1
 msgid ""
 "`-e CHOWN_HOME=yes` - Instructs the startup script to change the "
 "`$NB_USER` home directory owner and group to the current value of "
@@ -152,7 +154,7 @@ msgid ""
 "CHOWN_HOME_OPTS='-R'`)."
 msgstr ""
 
-#: ../../using/common.md:32 4585919f456e471fb2bf6659a8cc6f76
+#: ../../using/common.md:32 0f00251232924a0c8d54048b38de79b8
 msgid ""
 "`-e CHOWN_EXTRA=\"<some dir>,<some other dir>\"` - Instructs the startup "
 "script to change the owner and group of each comma-separated container "
@@ -162,7 +164,7 @@ msgid ""
 "CHOWN_EXTRA_OPTS='-R'`)."
 msgstr ""
 
-#: ../../using/common.md:33 84fcda2183ec41a6ae4dfe124c5ad7f3
+#: ../../using/common.md:33 93de857314e34afd8b459fb382548233
 msgid ""
 "`-e GRANT_SUDO=yes` - Instructs the startup script to grant the `NB_USER`"
 " user passwordless `sudo` capability. You do **not** need this option to "
@@ -175,14 +177,14 @@ msgid ""
 "you trust the user or if the container is running on an isolated host.**"
 msgstr ""
 
-#: ../../using/common.md:34 080d5b77d63e4672908e46b605162530
+#: ../../using/common.md:34 2a37029f965a46c98e8d6add282287f5
 msgid ""
 "`-e GEN_CERT=yes` - Instructs the startup script to generates a self-"
 "signed SSL certificate and configure Jupyter Notebook to use it to accept"
 " encrypted HTTPS connections."
 msgstr ""
 
-#: ../../using/common.md:35 cb910f8c991348b7b579e1c9396e59c9
+#: ../../using/common.md:35 1cb06efdf86f40c3a55746c016d44781
 msgid ""
 "`-e JUPYTER_ENABLE_LAB=yes` - Instructs the startup script to run "
 "`jupyter lab` instead of the default `jupyter notebook` command. Useful "
@@ -190,14 +192,14 @@ msgid ""
 "variables is easier than change command line parameters."
 msgstr ""
 
-#: ../../using/common.md:36 fbf5f9309a5446e6acc6b2f7e23698fc
+#: ../../using/common.md:36 4efb075fd6074fb581cf1b9c6aa14ace
 msgid ""
 "`-e RESTARTABLE=yes` - Runs Jupyter in a loop so that quitting Jupyter "
 "does not cause the container to exit.  This may be useful when you need "
 "to install extensions that require restarting Jupyter."
 msgstr ""
 
-#: ../../using/common.md:37 aa42cd703cdd498e9b3c9100cf1f431f
+#: ../../using/common.md:37 374ca3f077cb4793916c0e3a8ed03dd4
 msgid ""
 "`-v /some/host/folder/for/work:/home/jovyan/work` - Mounts a host machine"
 " directory as folder in the container. Useful when you want to preserve "
@@ -207,7 +209,7 @@ msgid ""
 "/some/host/folder/for/work`).**"
 msgstr ""
 
-#: ../../using/common.md:38 8faafeb7c8b9445a88432746f5abcabd
+#: ../../using/common.md:38 ab9b7b3ec7414a71b347dd6fbc766795
 msgid ""
 "`--user 5000 --group-add users` - Launches the container with a specific "
 "user ID and adds that user to the `users` group so that it can modify "
@@ -215,42 +217,42 @@ msgid ""
 "arguments as alternatives to setting `$NB_UID` and `$NB_GID`."
 msgstr ""
 
-#: ../../using/common.md:40 09078eda637b478aaf9752e73f7263c6
+#: ../../using/common.md:40 266bb5e3ba0f43d7b86e01c67e66a616
 msgid "## Startup Hooks"
 msgstr ""
 
-#: ../../using/common.md:42 601812bfacda4a44893281fb921577d3
+#: ../../using/common.md:42 e60fc4d682124269b4c57ab994f23ed7
 msgid ""
 "You can further customize the container environment by adding shell "
 "scripts (`*.sh`) to be sourced or executables (`chmod +x`) to be run to "
 "the paths below:"
 msgstr ""
 
-#: ../../using/common.md:45 22a8259a17fe4cce985a92ac100b6d55
+#: ../../using/common.md:45 187b20df918b4281a9934b81e415798f
 msgid ""
 "`/usr/local/bin/start-notebook.d/` - handled before any of the standard "
 "options noted above are applied"
 msgstr ""
 
-#: ../../using/common.md:47 a5d06860d2e24973b637ce013f6f215e
+#: ../../using/common.md:47 7307c34a4c7248aaafa0f1d8d455082e
 msgid ""
 "`/usr/local/bin/before-notebook.d/` - handled after all of the standard "
 "options noted above are applied and just before the notebook server "
 "launches"
 msgstr ""
 
-#: ../../using/common.md:50 3754d2964d134749be26a977da865e2a
+#: ../../using/common.md:50 d9080cd2b4f34e1690291af6c8697a19
 msgid ""
 "See the `run-hooks` function in the [`jupyter/base-notebook "
 "start.sh`](https://github.com/jupyter/docker-stacks/blob/master/base-"
 "notebook/start.sh) script for execution details."
 msgstr ""
 
-#: ../../using/common.md:53 2610d20ce98047b9a9987bdb10911399
+#: ../../using/common.md:53 9e8ff0616f2440ed93fc34127b3add36
 msgid "## SSL Certificates"
 msgstr ""
 
-#: ../../using/common.md:55 cb56f9a02be046099d271c7ab1676f3a
+#: ../../using/common.md:55 aa26b96670e44030ada28a3b537fb3b4
 msgid ""
 "You may mount SSL key and certificate files into a container and "
 "configure Jupyter Notebook to use them to accept HTTPS connections. For "
@@ -259,11 +261,11 @@ msgid ""
 msgstr ""
 
 #: ../../using/common.md:57 ../../using/common.md:67
-#: 5552f1198fd846a5b91748168cebea7b 94e47d34f69c463a8f088c59d47eecfb
-msgid "``` docker run -d -p 8888:8888 \\"
+#: 20e11a989e8f4d63ade133429b4ed938 c41eea28844c4005b1d49994ffe9cf95
+msgid "```bash docker run -d -p 8888:8888 \\"
 msgstr ""
 
-#: ../../using/common.md:59 f18cbc1d53904b549c7dd7e29084f027
+#: ../../using/common.md:59 00b9013e2738465caf697aef17979df5
 msgid ""
 "-v /some/host/folder:/etc/ssl/notebook \\ jupyter/base-notebook start-"
 "notebook.sh \\ --NotebookApp.keyfile=/etc/ssl/notebook/notebook.key "
@@ -271,26 +273,26 @@ msgid ""
 msgstr ""
 
 #: ../../using/common.md:63 ../../using/common.md:72 ../../using/recipes.md:55
-#: ../../using/recipes.md:67 ../../using/recipes.md:294
-#: ../../using/recipes.md:515 ../../using/running.md:34
+#: ../../using/recipes.md:67 ../../using/recipes.md:286
+#: ../../using/recipes.md:507 ../../using/running.md:34
 #: ../../using/running.md:75 ../../using/running.md:97
-#: ../../using/specifics.md:147 0dd0e7836fc940229aca31db09cd0ec5
-#: 1a06e5e2c2f84c08a95abff3e20b4c68 3d0339c9e1c14e8b8f5bf8facc480a40
-#: 59c04c41ae214302b81a67d7b0d8baf5 6c58bb549edb4fb7a8e547d6efe8ffa7
-#: 77634a0f07fb489b8fe7e31ade6acd14 afbfc8030ef649518fde5707df637a3a
-#: d4668a2d6f9c4b269cf2402a9d4382e2 e66ae6e846c34c1abfe97e9c5ef7de09
-#: e841fbefe5a841438f7b42a49bee9c5b
+#: ../../using/specifics.md:204 0029114f448849bc95a9d58f67773502
+#: 0be0cbfe4f914c4d97b0cf4131269d2b 2047fa2de0bc463186f0bb596e3ba479
+#: 4c34bcf0a6244732b469412dbd61670e 680fab6d4fdf412ea4168b52f814aa21
+#: 7d80b8fdc3f444a692081045ba67a63b 9c535623d3924aa2ae0f5f56f9490737
+#: c8ec0aee812f499c8b04f0efc103c75f da6d9fb19a644458b11451edaef22094
+#: dfd0829f645e4adfb75b02552d612147
 msgid "```"
 msgstr ""
 
 # e496d62ce1b7489eabf40a55471247b4
-#: ../../using/common.md:65 ba1fc16cdcab43a8965e48e36d34fbdc
+#: ../../using/common.md:65 cb99141288284c2b963f9b046de46ebb
 msgid ""
 "Alternatively, you may mount a single PEM file containing both the key "
 "and certificate. For example:"
 msgstr ""
 
-#: ../../using/common.md:69 47a25bfeafc84b36b90c57e7bd054643
+#: ../../using/common.md:69 21e261f38b6340ed9ab7028f8b814135
 msgid ""
 "-v /some/host/folder/notebook.pem:/etc/ssl/notebook.pem \\ jupyter/base-"
 "notebook start-notebook.sh \\ "
@@ -298,7 +300,7 @@ msgid ""
 msgstr ""
 
 # 6ada67b7d1a34f59ad235d7e49e6a298
-#: ../../using/common.md:74 5f674a2e2eca4bc39a3059116ac0f64c
+#: ../../using/common.md:74 5a7c3f451bdd4c01a6467ac38ad6a9b8
 msgid ""
 "In either case, Jupyter Notebook expects the key and certificate to be a "
 "base64 encoded text file. The certificate file or PEM may contain one or "
@@ -306,11 +308,11 @@ msgid ""
 msgstr ""
 
 # c908965cf0084fc2b276b50b47b87d18
-#: ../../using/common.md:76 3c051664e68541c7a5f29168747b7044
+#: ../../using/common.md:76 93436ab1eee74e618224279355caa151
 msgid "For additional information about using SSL, see the following:"
 msgstr ""
 
-#: ../../using/common.md:78 c3aeedbe1aae46b585d47d068d374e80
+#: ../../using/common.md:78 7a2f9b8771594b05a7a1ad8953c247d3
 msgid ""
 "The [docker-stacks/examples](https://github.com/jupyter/docker-"
 "stacks/tree/master/examples) for information about how to use [Let's "
@@ -318,14 +320,14 @@ msgid ""
 " on a publicly visible domain."
 msgstr ""
 
-#: ../../using/common.md:79 4548f571f0154e35a42a9a05ccb1c82e
+#: ../../using/common.md:79 6a4365be12f14ecfb8df011e3b615dbc
 msgid ""
 "The [jupyter_notebook_config.py](https://github.com/jupyter/docker-"
 "stacks/blob/master/base-notebook/jupyter_notebook_config.py) file for how"
 " this Docker image generates a self-signed certificate."
 msgstr ""
 
-#: ../../using/common.md:80 1c679672f30045cb8d678671266a3329
+#: ../../using/common.md:80 610f16394c7f4e1598917cdbdf8ad4f8
 msgid ""
 "The [Jupyter Notebook documentation](https://jupyter-"
 "notebook.readthedocs.io/en/latest/public_server.html#securing-a-notebook-"
@@ -333,15 +335,15 @@ msgid ""
 "general."
 msgstr ""
 
-#: ../../using/common.md:82 90b398e4d411411582b00b329c996912
+#: ../../using/common.md:82 5bd5242bcfd14d1ba022d996b857c297
 msgid "## Alternative Commands"
 msgstr ""
 
-#: ../../using/common.md:84 68b7afb7b7f44e6faf039b9adb40cf66
+#: ../../using/common.md:84 191fd20e25694d999001e93d98022f9a
 msgid "### start.sh"
 msgstr ""
 
-#: ../../using/common.md:86 b5ee0df808e7484db2f5c893c603b0a4
+#: ../../using/common.md:86 ac89620ed81a45148d914130526bf91a
 msgid ""
 "The `start-notebook.sh` script actually inherits most of its option "
 "handling capability from a more generic `start.sh` script. The `start.sh`"
@@ -350,44 +352,44 @@ msgid ""
 "based `ipython` console in a container, do the following:"
 msgstr ""
 
-#: ../../using/common.md:88 f2c3fa55d87c45a6b91a043170242330
-msgid "``` docker run -it --rm jupyter/base-notebook start.sh ipython ```"
+#: ../../using/common.md:88 32610963a79c4a1288ca16c4644feb4b
+msgid "```bash docker run -it --rm jupyter/base-notebook start.sh ipython ```"
 msgstr ""
 
 # ad0be3e8095e4394afb367e9e56e1ca5
-#: ../../using/common.md:92 ba884f81a64a45e1a08d1c9373496327
+#: ../../using/common.md:92 fb371df1c3a444ea92049d4eb6b30261
 msgid "Or, to run JupyterLab instead of the classic notebook, run the following:"
 msgstr ""
 
-#: ../../using/common.md:94 4c23ccc088ff44cb9d37a293bcf9ed11
+#: ../../using/common.md:94 af04526986a84806b12858d63027ef0f
 msgid ""
-"``` docker run -it --rm -p 8888:8888 jupyter/base-notebook start.sh "
+"```bash docker run -it --rm -p 8888:8888 jupyter/base-notebook start.sh "
 "jupyter lab ```"
 msgstr ""
 
-#: ../../using/common.md:98 7b469cc6a8564a569756079e9ffa7b9a
+#: ../../using/common.md:98 2267820e9d1347e781a22a96c7a0674b
 msgid ""
 "This script is particularly useful when you derive a new Dockerfile from "
 "this image and install additional Jupyter applications with subcommands "
 "like `jupyter console`, `jupyter kernelgateway`, etc."
 msgstr ""
 
-#: ../../using/common.md:100 c139c0f0cdf440c6a2609d989ac73bb8
+#: ../../using/common.md:100 62e7b64b86364282bd5d6c83e0497f6d
 msgid "### Others"
 msgstr ""
 
-#: ../../using/common.md:102 c367b92e9d6c47feb247a47f4e5df23f
+#: ../../using/common.md:102 d77bbb4842e9486b9a1294da050068e5
 msgid ""
 "You can bypass the provided scripts and specify an arbitrary start "
 "command. If you do, keep in mind that features supported by the "
 "`start.sh` script and its kin will not function (e.g., `GRANT_SUDO`)."
 msgstr ""
 
-#: ../../using/common.md:104 9a67011ce07449238b4c66107172c554
+#: ../../using/common.md:104 67a7f6307982430499df8dbe31c23040
 msgid "## Conda Environments"
 msgstr ""
 
-#: ../../using/common.md:106 2c343aba8241476e9cc4b8175b771758
+#: ../../using/common.md:106 93e0b58bd4014fc4b507d5bd578ad51c
 msgid ""
 "The default Python 3.x [Conda "
 "environment](http://conda.pydata.org/docs/using/envs.html) resides in "
@@ -396,24 +398,24 @@ msgid ""
 "`sudo` commands by the `start.sh` script."
 msgstr ""
 
-#: ../../using/common.md:108 6b45b6c91fd8413db3607492ee4bf7fb
+#: ../../using/common.md:108 890a000f87ca4c078283615d50084282
 msgid ""
 "The `jovyan` user has full read/write access to the `/opt/conda` "
 "directory. You can use either `conda` or `pip` to install new packages "
 "without any additional permissions."
 msgstr ""
 
-#: ../../using/common.md:110 3b53c50153ad4f8ca7f1922747d121c1
+#: ../../using/common.md:110 528608cc28a84fd0b41b2fc8ebcd6f38
 msgid ""
-"``` # install a package into the default (python 3.x) environment pip "
-"install some-package conda install some-package ```"
+"```bash # install a package into the default (python 3.x) environment pip"
+" install some-package conda install some-package ```"
 msgstr ""
 
-#: ../../using/recipes.md:1 0f6c771870e04f99abe5d0960ea45213
+#: ../../using/recipes.md:1 c6f26978ab6f4810a4c598ce4e867bbd
 msgid "# Contributed Recipes"
 msgstr ""
 
-#: ../../using/recipes.md:3 48626f57f24f443da029e135742d667e
+#: ../../using/recipes.md:3 4e9b15e818e14011849f630df97b2382
 msgid ""
 "Users sometimes share interesting ways of using the Jupyter Docker "
 "Stacks. We encourage users to [contribute these "
@@ -423,11 +425,11 @@ msgid ""
 "knowledge."
 msgstr ""
 
-#: ../../using/recipes.md:8 2cc34ff79ea7459390b813098e726db0
+#: ../../using/recipes.md:8 ff3215d620294836831945f364f86ba1
 msgid "## Using `sudo` within a container"
 msgstr ""
 
-#: ../../using/recipes.md:10 0d6703d35db04c2484ec998f0e386fcf
+#: ../../using/recipes.md:10 5aa3479e621245f29ce3fe5496098165
 msgid ""
 "Password authentication is disabled for the `NB_USER` (e.g., `jovyan`). "
 "This choice was made to avoid distributing images with a weak default "
@@ -435,7 +437,7 @@ msgid ""
 "container on a publicly accessible host."
 msgstr ""
 
-#: ../../using/recipes.md:14 31e530b1c74947a48bb5f9c569edc931
+#: ../../using/recipes.md:14 30838df2e32d4ac5a75e026e604394cc
 msgid ""
 "You can grant the within-container `NB_USER` passwordless `sudo` access "
 "by adding `-e GRANT_SUDO=yes` and `--user root` to your Docker command "
@@ -443,17 +445,17 @@ msgid ""
 msgstr ""
 
 # f75300183d66418d958651b713e3c81e
-#: ../../using/recipes.md:18 432db9ffdccd4ac1b566cb5db1004d10
+#: ../../using/recipes.md:18 ebaf9004f5a74b8296c915e340d98308
 msgid "For example:"
 msgstr ""
 
-#: ../../using/recipes.md:20 83b29b027db7446599b9746c15972711
+#: ../../using/recipes.md:20 250828e689b04d24860f5a2b9bcdfa37
 msgid ""
-"``` docker run -it -e GRANT_SUDO=yes --user root jupyter/minimal-notebook"
-" ```"
+"```bash docker run -it -e GRANT_SUDO=yes --user root jupyter/minimal-"
+"notebook ```"
 msgstr ""
 
-#: ../../using/recipes.md:24 8e625175270f4701a11452d067331741
+#: ../../using/recipes.md:24 b2cb0e65b9fb404984e0e7807e0d7c3a
 msgid ""
 "**You should only enable `sudo` if you trust the user and/or if the "
 "container is running on an isolated host.** See [Docker security "
@@ -461,16 +463,16 @@ msgid ""
 " more information about running containers as `root`."
 msgstr ""
 
-#: ../../using/recipes.md:27 a17b72d6e46240538f8935cf68f00432
+#: ../../using/recipes.md:27 05c97e44e98a4e828273cbb417a563b1
 msgid "## Using `pip install` or `conda install` in a Child Docker image"
 msgstr ""
 
 # cfb1a65ed1a4453e8b3355f1c0c23b1c
-#: ../../using/recipes.md:29 083e2519876e4cb4a6e44d7cda564504
+#: ../../using/recipes.md:29 e96fdde2c5614e388f10cba21ca41ec2
 msgid "Create a new Dockerfile like the one shown below."
 msgstr ""
 
-#: ../../using/recipes.md:31 65b5ff78226d4fdeba9ce77ff1815fa5
+#: ../../using/recipes.md:31 698a455cd7544fe4bc5be0afced627e2
 msgid ""
 "```dockerfile # Start from a core stack version FROM jupyter/datascience-"
 "notebook:9f9e5ca8fe5a # Install in the default python3 environment RUN "
@@ -478,22 +480,22 @@ msgid ""
 msgstr ""
 
 # 3ab615dc6fb6425d954cae4ce14f08b9
-#: ../../using/recipes.md:38 93944d9174024c8185b73fc2d009bcb9
+#: ../../using/recipes.md:38 4a9545613d454b07b8572f49a3ed006d
 msgid "Then build a new image."
 msgstr ""
 
-#: ../../using/recipes.md:40 cc8c8cfcdb874677b06cbeccf0c0bb2e
+#: ../../using/recipes.md:40 bf4702ca27bb470ebdd5c6dd1f753b40
 msgid "```bash docker build --rm -t jupyter/my-datascience-notebook . ```"
 msgstr ""
 
-#: ../../using/recipes.md:44 553974b7339f4bbda284e88ac028b22e
+#: ../../using/recipes.md:44 b0d4c69c841f4cc39b5b70af24b7baf1
 msgid ""
 "To use a requirements.txt file, first create your `requirements.txt` file"
 " with the listing of packages desired. Next, create a new Dockerfile like"
 " the one shown below."
 msgstr ""
 
-#: ../../using/recipes.md:47 a57b9cf769414c8e866d715b3e5a1e45
+#: ../../using/recipes.md:47 e2af7e0212f64ba9a72ec4863e5559c5
 msgid ""
 "```dockerfile # Start from a core stack version FROM jupyter/datascience-"
 "notebook:9f9e5ca8fe5a # Install from requirements.txt file COPY "
@@ -502,17 +504,17 @@ msgid ""
 msgstr ""
 
 #: ../../using/recipes.md:53 ../../using/recipes.md:65
-#: ../../using/recipes.md:129 169d4125a8104ba28a423d4c87ee1318
-#: 47149ae825fa4f9cb71279e6b9e1a832 47a50d12a7154f83a2fc602cd28f196b
+#: ../../using/recipes.md:129 426369fd5198423d8e966713ef06f7b1
+#: 79f964a9fbd04718adae7d5933f3cc22 b4937d824fc745679304c15b5c904072
 msgid "fix-permissions $CONDA_DIR && \\ fix-permissions /home/$NB_USER"
 msgstr ""
 
 # f2f035925d764425b9999b19d36c1d30
-#: ../../using/recipes.md:57 05674c212de1463593ad8c95a59273f6
+#: ../../using/recipes.md:57 d6c446a290944f38a7be0468e7e40fa2
 msgid "For conda, the Dockerfile is similar:"
 msgstr ""
 
-#: ../../using/recipes.md:59 759cee47611440699de7d3516b380453
+#: ../../using/recipes.md:59 309b7ea22c1449b48f7d3884c0a3e4ea
 msgid ""
 "```dockerfile # Start from a core stack version FROM jupyter/datascience-"
 "notebook:9f9e5ca8fe5a # Install from requirements.txt file COPY "
@@ -520,7 +522,7 @@ msgid ""
 "/tmp/requirements.txt && \\"
 msgstr ""
 
-#: ../../using/recipes.md:69 a5bdc9f896ae43909628cd6dee732bce
+#: ../../using/recipes.md:69 fb829ef4df5d4a0b82a0337aa4712fbf
 msgid ""
 "Ref: [docker-"
 "stacks/commit/79169618d571506304934a7b29039085e77db78c](https://github.com/jupyter"
@@ -528,22 +530,24 @@ msgid ""
 "stacks/commit/79169618d571506304934a7b29039085e77db78c#commitcomment-15960081)"
 msgstr ""
 
-#: ../../using/recipes.md:72 bc60ead2194b47dcbd1264d73a000458
+#: ../../using/recipes.md:72 d4f3dc8ee06a48fb9b4f9f589b9794a2
 msgid "## Add a Python 2.x environment"
 msgstr ""
 
-#: ../../using/recipes.md:74 21e5c6846a554378b966b66e186a81be
+#: ../../using/recipes.md:74 45026bd2c83f49aab4d488d500a2223d
 msgid ""
 "Python 2.x was removed from all images on August 10th, 2017, starting in "
 "tag `cc9feab481f7`. You can add a Python 2.x environment by defining your"
 " own Dockerfile inheriting from one of the images like so:"
 msgstr ""
 
-#: ../../using/recipes.md:78 f5edc69d4e704b6bbf9600fe4a12c6fa
-msgid "``` # Choose your desired base image FROM jupyter/scipy-notebook:latest"
+#: ../../using/recipes.md:78 dd071a7b7b4943ba93b6387ca3c8d3f4
+msgid ""
+"```dockerfile # Choose your desired base image FROM jupyter/scipy-"
+"notebook:latest"
 msgstr ""
 
-#: ../../using/recipes.md:82 9fee510148ca432785b546d23b3ca025
+#: ../../using/recipes.md:82 f785e48abb3940c1a19b8d5da1e53c0c
 msgid ""
 "# Create a Python 2.x environment using conda including at least the "
 "ipython kernel # and the kernda utility. Add any additional packages you "
@@ -553,17 +557,17 @@ msgid ""
 msgstr ""
 
 #: ../../using/recipes.md:86 ../../using/recipes.md:116
-#: 32570d0891ff4a4c8d731193c115add2 9f50c3dd8558477491d124a692ed0053
+#: cf100e9216ea401cb22957696fdb70a5 de3532dbd97345f5bf560fe6398bc13c
 msgid "conda clean --all -f -y"
 msgstr ""
 
 #: ../../using/recipes.md:88 ../../using/recipes.md:253
-#: ../../using/recipes.md:528 458938d6178c41c0ab8b6d9188eefb59
-#: 9d5b66d35c984047b754b0a65e6507a5 b86bd4a4dcb44958bf0e2131d21a5d65
+#: ../../using/recipes.md:520 834c5a4707144844bc0a92be1d3a662b
+#: 939f557d04914a72af0004dbff31e5e5 9f214a380867430cb0d8c30889146ace
 msgid "USER root"
 msgstr ""
 
-#: ../../using/recipes.md:90 9533c68a1380414caaef61b3e0d95c3c
+#: ../../using/recipes.md:90 bca094d9d80f4e92b4efe61b573ca61b
 msgid ""
 "# Create a global kernelspec in the image and modify it so that it "
 "properly activates # the python2 conda environment. RUN "
@@ -572,21 +576,21 @@ msgid ""
 "/usr/local/share/jupyter/kernels/python2/kernel.json"
 msgstr ""
 
-#: ../../using/recipes.md:95 ab3992c0065a451b817472cff1811ea0
+#: ../../using/recipes.md:95 2c186aa745734d5995bf182a8ea777a4
 msgid "USER $NB_USER ```"
 msgstr ""
 
-#: ../../using/recipes.md:98 8557adf3dcd445b187b528e8cbe0cf19
+#: ../../using/recipes.md:98 ebce5f6b22a84be9971c36e01d956d9b
 msgid ""
 "Ref: [https://github.com/jupyter/docker-"
 "stacks/issues/440](https://github.com/jupyter/docker-stacks/issues/440)"
 msgstr ""
 
-#: ../../using/recipes.md:101 98194a9078e04886b99e5fe29fff8ee2
+#: ../../using/recipes.md:101 ad5b20a6572a4da78468ac24e23eef6d
 msgid "## Add a Python 3.x environment"
 msgstr ""
 
-#: ../../using/recipes.md:103 0ef8216386ab4b469abdce6a318a2a39
+#: ../../using/recipes.md:103 ee92e01095fd4f5aa1002fdf3027f498
 msgid ""
 "The default version of Python that ships with conda/ubuntu may not be the"
 " version you want. To add a conda environment with a different version "
@@ -594,17 +598,19 @@ msgid ""
 "Python 2.x but are slightly simpler (no need to switch to `root`):"
 msgstr ""
 
-#: ../../using/recipes.md:106 61f005db4a0c46578c5a3ed2d43a0da4
-msgid "``` # Choose your desired base image FROM jupyter/minimal-notebook:latest"
+#: ../../using/recipes.md:106 308dd65d4f5743eebe905448e6fae0f0
+msgid ""
+"```dockerfile # Choose your desired base image FROM jupyter/minimal-"
+"notebook:latest"
 msgstr ""
 
-#: ../../using/recipes.md:110 d2cf619edda94b6285fe1b9b41e666ee
+#: ../../using/recipes.md:110 dd3bab86f14b47e8a4216965429965e8
 msgid ""
 "# name your environment and choose python 3.x version ARG "
 "conda_env=python36 ARG py_ver=3.6"
 msgstr ""
 
-#: ../../using/recipes.md:114 bc980f667ee34f2cb0ac051587724693
+#: ../../using/recipes.md:114 e4f874473ecd4c21b810ba3ac4881d97
 msgid ""
 "# you can add additional libraries you want conda to install by listing "
 "them below the first line and ending with \"&& \\\" RUN conda create "
@@ -612,67 +618,67 @@ msgid ""
 "ipykernel && \\"
 msgstr ""
 
-#: ../../using/recipes.md:118 2eda563a650b4ec0abcf2d60b0525459
+#: ../../using/recipes.md:118 60b4901091134185bf7755fcd46785f5
 msgid ""
 "# alternatively, you can comment out the lines above and uncomment those "
 "below # if you'd prefer to use a YAML file present in the docker build "
 "context"
 msgstr ""
 
-#: ../../using/recipes.md:121 96ba2ab4448d453e8acec0b4fa744bb1
+#: ../../using/recipes.md:121 54e0f680a9034d3e83c5efa84a5c5f4b
 msgid ""
 "# COPY environment.yml /home/$NB_USER/tmp/ # RUN cd /home/$NB_USER/tmp/ "
 "&& \\ #     conda env create -p $CONDA_DIR/envs/$conda_env -f "
 "environment.yml && \\ #     conda clean --all -f -y"
 msgstr ""
 
-#: ../../using/recipes.md:127 d14b9182be584fe398fd1a9a2af45622
+#: ../../using/recipes.md:127 330a984503ab4a21b6ffd1a277c114cd
 msgid ""
 "# create Python 3.x environment and link it to jupyter RUN "
 "$CONDA_DIR/envs/${conda_env}/bin/python -m ipykernel install --user "
 "--name=${conda_env} && \\"
 msgstr ""
 
-#: ../../using/recipes.md:132 71592e196dda434a99b04fbe0b140482
+#: ../../using/recipes.md:132 ec17ef28445a4377ae75c4e5e42fc2be
 msgid ""
 "# any additional pip installs can be added by uncommenting the following "
 "line # RUN $CONDA_DIR/envs/${conda_env}/bin/pip install"
 msgstr ""
 
-#: ../../using/recipes.md:135 9745884eb75c47a0aab76af2e3b9bf75
+#: ../../using/recipes.md:135 1156fe13507043b7b2c83ce3f76a4eec
 msgid ""
 "# prepend conda environment to path ENV PATH "
 "$CONDA_DIR/envs/${conda_env}/bin:$PATH"
 msgstr ""
 
-#: ../../using/recipes.md:138 a033261781f14ddc87fe7a7ab61744c2
+#: ../../using/recipes.md:138 e1b095fa961e46e384b5671ccd00f108
 msgid ""
 "# if you want this environment to be the default one, uncomment the "
 "following line: # ENV CONDA_DEFAULT_ENV ${conda_env} ```"
 msgstr ""
 
-#: ../../using/recipes.md:142 fc48bf52d96d429ebf55c3871c03de62
+#: ../../using/recipes.md:142 893d7f6a0daa4257850a5043442f374b
 msgid "## Run JupyterLab"
 msgstr ""
 
-#: ../../using/recipes.md:144 02109c7df6df47db9a27740a702e2488
+#: ../../using/recipes.md:144 e1ff3c8ee0ba466d936fc8ad04cff877
 msgid ""
 "JupyterLab is preinstalled as a notebook extension starting in tag "
 "[c33a7dc0eece](https://github.com/jupyter/docker-stacks/wiki/Docker-"
 "build-history)."
 msgstr ""
 
-#: ../../using/recipes.md:147 01c10e510ccf4e729a5f59d825830bd3
+#: ../../using/recipes.md:147 635e4a888f844fed819d93c1a976119f
 msgid ""
 "Run jupyterlab using a command such as `docker run -it --rm -p 8888:8888 "
 "jupyter/datascience-notebook start.sh jupyter lab`"
 msgstr ""
 
-#: ../../using/recipes.md:150 f9bcf889e29c4fac8e1ffe5cbdeb4bde
+#: ../../using/recipes.md:150 9c3fbfa7f17241f9a9aa8f416f29ffcd
 msgid "## Dask JupyterLab Extension"
 msgstr ""
 
-#: ../../using/recipes.md:152 ae642b8c85df4a89967f27713e946901
+#: ../../using/recipes.md:152 614c0cf319a94343964e5a38b91e48b2
 msgid ""
 "[Dask JupyterLab Extension](https://github.com/dask/dask-labextension) "
 "provides a JupyterLab extension to manage Dask clusters, as well as embed"
@@ -680,51 +686,51 @@ msgid ""
 "Dockerfile as:"
 msgstr ""
 
-#: ../../using/recipes.md:154 65222637dcd54c27a30c3447883a9aa9
+#: ../../using/recipes.md:154 52b8414e798b42a8b86349fdc86a9ec4
 msgid ""
 "```dockerfile # Start from a core stack version FROM jupyter/scipy-"
 "notebook:latest"
 msgstr ""
 
-#: ../../using/recipes.md:158 f4ac237765cb4293b645d7a66dd45cb7
+#: ../../using/recipes.md:158 69b2fdb2ef2b4d1e8961e5c1193eb370
 msgid "# Install the Dask dashboard RUN pip install dask_labextension ; \\"
 msgstr ""
 
-#: ../../using/recipes.md:160 999b98813fe54f64a1c7cb5cc3784d08
+#: ../../using/recipes.md:160 86b994e67dcd455ea836ddf97080e5ae
 msgid "jupyter labextension install -y --clean \\ dask-labextension"
 msgstr ""
 
-#: ../../using/recipes.md:163 8b31733d497c4308978c426449ce5e14
+#: ../../using/recipes.md:163 07f893f73ed14003a7f958dc597beb68
 msgid "# Dask Scheduler & Bokeh ports EXPOSE 8787 EXPOSE 8786"
 msgstr ""
 
-#: ../../using/recipes.md:167 b93af5ae7250416ca5285147575071e2
+#: ../../using/recipes.md:167 4a28ed279bca4c878b13fe3cbfe6b66f
 msgid "ENTRYPOINT [\"jupyter\", \"lab\", \"--ip=0.0.0.0\", \"--allow-root\"] ```"
 msgstr ""
 
-#: ../../using/recipes.md:170 0445f94df0ef4ccaa70d1f117a06fbb2
+#: ../../using/recipes.md:170 e57709a7ab174e5984fd955d3dcab63c
 msgid ""
-"And build the image as: ``` docker build -t jupyter/scipy-"
+"And build the image as: ```bash docker build -t jupyter/scipy-"
 "dasklabextension:latest . ```"
 msgstr ""
 
-#: ../../using/recipes.md:175 63f7c13e0f154209af877ae3e9b50d2f
+#: ../../using/recipes.md:175 afe39e4c73a44ecaa4a7bfc751410e2f
 msgid ""
-"Once built, run using the command: ``` docker run -it --rm -p 8888:8888 "
-"-p 8787:8787 jupyter/scipy-dasklabextension:latest ```"
+"Once built, run using the command: ```bash docker run -it --rm -p "
+"8888:8888 -p 8787:8787 jupyter/scipy-dasklabextension:latest ```"
 msgstr ""
 
-#: ../../using/recipes.md:180 b98449b82b5c447389cefe0731b1f118
+#: ../../using/recipes.md:180 357c04d350eb4f8f9415432d39db6da0
 msgid ""
 "Ref: [https://github.com/jupyter/docker-"
 "stacks/issues/999](https://github.com/jupyter/docker-stacks/issues/999)"
 msgstr ""
 
-#: ../../using/recipes.md:183 aa75b352816d42839ad98b466955eb20
+#: ../../using/recipes.md:183 27754fe36eda431d80c5cdf6a57850c2
 msgid "## Let's Encrypt a Notebook server"
 msgstr ""
 
-#: ../../using/recipes.md:185 d8587f9ba8f64634b40fbb79da773099
+#: ../../using/recipes.md:185 b578c6a0f1824307ab493036f3ed81bb
 msgid ""
 "See the README for the simple automation here [https://github.com/jupyter"
 "/docker-stacks/tree/master/examples/make-"
@@ -733,67 +739,67 @@ msgid ""
 "Encrypt certificate."
 msgstr ""
 
-#: ../../using/recipes.md:189 f824e3696418400988a5d99b5ce59e38
+#: ../../using/recipes.md:189 578993f062c04655bd01d53062b62778
 msgid ""
 "Ref: [https://github.com/jupyter/docker-"
 "stacks/issues/78](https://github.com/jupyter/docker-stacks/issues/78)"
 msgstr ""
 
-#: ../../using/recipes.md:192 5e9e4c018a034faf9ce8a432f968d188
+#: ../../using/recipes.md:192 b081bf2595e747bba4afc01e04436c93
 msgid "## Slideshows with Jupyter and RISE"
 msgstr ""
 
-#: ../../using/recipes.md:194 a19e0adb8d644e90a01aff327243d6fd
+#: ../../using/recipes.md:194 971147d4c6e0462c800e80608056883e
 msgid ""
 "[RISE](https://github.com/damianavila/RISE) allows via extension to "
 "create live slideshows of your notebooks, with no conversion, adding "
 "javascript Reveal.js:"
 msgstr ""
 
-#: ../../using/recipes.md:197 e71a57b6d89f4578af09eb10a7067ebb
+#: ../../using/recipes.md:197 2d55d7e93da144f4a37409460a6c24f6
 msgid ""
-"``` # Add Live slideshows with RISE RUN conda install -c damianavila82 "
-"rise ```"
+"```bash # Add Live slideshows with RISE RUN conda install -c "
+"damianavila82 rise ```"
 msgstr ""
 
-#: ../../using/recipes.md:202 4534aa8e0cb042278ceb1c6835657d24
+#: ../../using/recipes.md:202 64acc7fac6ad412e90d733a97a19ef3a
 msgid ""
 "Credit: [Paolo D.](https://github.com/pdonorio) based on [docker-"
 "stacks/issues/43](https://github.com/jupyter/docker-stacks/issues/43)"
 msgstr ""
 
-#: ../../using/recipes.md:205 f0eda810125c45d88205c1a98f82adc9
+#: ../../using/recipes.md:205 3b131a2e6c1a4ce189fe06125bc8952a
 msgid "## xgboost"
 msgstr ""
 
 # ce204678c3af4aa9a0fb55bb6de7554b
-#: ../../using/recipes.md:207 3ebd9bd615c949c3aef6e8407ebc2586
+#: ../../using/recipes.md:207 3dd481dcc0514f9dbf3fe160ac7bebfc
 msgid ""
 "You need to install conda's gcc for Python xgboost to work properly. "
 "Otherwise, you'll get an exception about libgomp.so.1 missing GOMP_4.0."
 msgstr ""
 
-#: ../../using/recipes.md:210 915caacbb02b4d3abec6c12a4a0fde46
+#: ../../using/recipes.md:210 759d2f53088d4131a5e2b2fc10b4d387
 #, python-format
-msgid "``` %%bash conda install -y gcc pip install xgboost"
+msgid "```bash %%bash conda install -y gcc pip install xgboost"
 msgstr ""
 
-#: ../../using/recipes.md:215 7ffe14a1169041a5800566d6fffb4afb
+#: ../../using/recipes.md:215 7f12acbb630844dbaa84f26317abc112
 msgid "import xgboost ```"
 msgstr ""
 
-#: ../../using/recipes.md:218 87335af7304b462aacf30b52b7b75964
+#: ../../using/recipes.md:218 52248cf3852c491a849cc0c6e2db82e3
 msgid "## Running behind a nginx proxy"
 msgstr ""
 
 # ca7763a5a35a47bd9fb29ae9d00feab3
-#: ../../using/recipes.md:220 06d1c71c15c140a6a85b7341f1bbae7b
+#: ../../using/recipes.md:220 63962d106e3646859c976c3e383c21a7
 msgid ""
 "Sometimes it is useful to run the Jupyter instance behind a nginx proxy, "
 "for instance:"
 msgstr ""
 
-#: ../../using/recipes.md:222 381a0ba311b8433aace18b335c9c66e2
+#: ../../using/recipes.md:222 6327ad275dfb4bef8c645aae444d8a8c
 msgid ""
 "you would prefer to access the notebook at a server URL with a path "
 "(`https://example.com/jupyter`) rather than a port "
@@ -801,14 +807,14 @@ msgid ""
 msgstr ""
 
 # a5129fb6e2b042f5b8161ed5318123f9
-#: ../../using/recipes.md:224 7ed5fdf6b9d04bb1be1859f65fa8e347
+#: ../../using/recipes.md:224 7eddcf42931c44839f5a5f454862db16
 msgid ""
 "you may have many different services in addition to Jupyter running on "
 "the same server, and want to nginx to help improve server performance in "
 "manage the connections"
 msgstr ""
 
-#: ../../using/recipes.md:227 94df663f9d05445483c867f6bc652617
+#: ../../using/recipes.md:227 7aeff113ec3246719cac1e8196a85b2e
 msgid ""
 "Here is a [quick example NGINX "
 "configuration](https://gist.github.com/cboettig/8643341bd3c93b62b5c2) to "
@@ -819,11 +825,11 @@ msgid ""
 "services."
 msgstr ""
 
-#: ../../using/recipes.md:232 c4ca79cde22d47398dbe91affbff310e
+#: ../../using/recipes.md:232 ec214c72d94c4f1382e890fa390938bd
 msgid "## Host volume mounts and notebook errors"
 msgstr ""
 
-#: ../../using/recipes.md:234 91c82894fd884410ba055d4eec2b876f
+#: ../../using/recipes.md:234 d25cac4d2c194385b6a605887445e6e2
 msgid ""
 "If you are mounting a host directory as `/home/jovyan/work` in your "
 "container and you receive permission errors or connection errors when you"
@@ -834,144 +840,131 @@ msgid ""
 "section](../using/common.html#Docker-Options)"
 msgstr ""
 
-#: ../../using/recipes.md:240 a8d2d7a1e3224229bd999142d26ed1d7
+#: ../../using/recipes.md:240 349b7b6565504ce39e007da3b50f26a3
 msgid ""
 "Ref: [https://github.com/jupyter/docker-"
 "stacks/issues/199](https://github.com/jupyter/docker-stacks/issues/199)"
 msgstr ""
 
-#: ../../using/recipes.md:243 2214da91c9c14b9483d6112785b42c46
+#: ../../using/recipes.md:243 9d5b65083a4b4547883cce3064c878a2
 msgid "## Manpage installation"
 msgstr ""
 
 # 7fc6566074ee4ba3a4e579437d7f151d
-#: ../../using/recipes.md:245 0585278a01824a6f8116a92f539d7f78
+#: ../../using/recipes.md:245 124fc685d8dd41e5ac5a515c193cba86
 msgid ""
 "Most containers, including our Ubuntu base image, ship without manpages "
 "installed to save space. You can use the following dockerfile to inherit "
 "from one of our images to enable manpages:"
 msgstr ""
 
-#: ../../using/recipes.md:248 9b9e4c8f2e9a4eb8a5ab7d0fd3e4a682
+#: ../../using/recipes.md:248 b55ff4d35b8e43c8a5a4033917f98c01
 msgid ""
 "```dockerfile # Choose your desired base image ARG BASE_CONTAINER=jupyter"
 "/datascience-notebook:latest FROM $BASE_CONTAINER"
 msgstr ""
 
-#: ../../using/recipes.md:255 b3dd05cb7672471ab2b685698655494d
+#: ../../using/recipes.md:255 9bc237eb01f64f0aa446f79771b2a3a3
 msgid ""
 "# Remove the manpage blacklist, install man, install docs RUN rm "
 "/etc/dpkg/dpkg.cfg.d/excludes \\"
 msgstr ""
 
-#: ../../using/recipes.md:257 ../../using/recipes.md:285
-#: 1cf27bd17b2f4cd782c69745a6a5542b 527bb18154cc46d2be24fb8f5210343d
+#: ../../using/recipes.md:257 24ea1f97381a4ed481e5238f9e568e04
 msgid ""
 "&& apt-get update \\ && dpkg -l | grep ^ii | cut -d' ' -f3 | xargs apt-"
 "get install -yq --no-install-recommends --reinstall man \\ && apt-get "
 "clean \\ && rm -rf /var/lib/apt/lists/*"
 msgstr ""
 
-#: ../../using/recipes.md:262 211d4c1c77394f039222b942318a9319
-msgid ""
-"# Workaround for a mandb bug, should be fixed in mandb > 2.8.5 # "
-"https://git.savannah.gnu.org/cgit/man-"
-"db.git/commit/?id=8197d7824f814c5d4b992b4c8730b5b0f7ec589a RUN echo "
-"\"MANPATH_MAP ${CONDA_DIR}/bin ${CONDA_DIR}/man\" >> /etc/manpath.config "
-"\\"
-msgstr ""
-
-#: ../../using/recipes.md:265 33f7eb38cddf43fd8a0a719406382d3f
-msgid ""
-"&& echo \"MANPATH_MAP ${CONDA_DIR}/bin ${CONDA_DIR}/share/man\" >> "
-"/etc/manpath.config \\ && mandb"
-msgstr ""
-
-#: ../../using/recipes.md:268 271ed3bfa1e24ed8945807fc6491a5d6
+#: ../../using/recipes.md:262 289a60d1ee0249b5a88ebd81af50fdb9
 msgid "USER $NB_UID ```"
 msgstr ""
 
-#: ../../using/recipes.md:271 d9915071263e416da60ad45dc7d94852
+#: ../../using/recipes.md:265 7b2e996cb19d46db96ac39b6eacfca24
 msgid ""
 "Adding the documentation on top of an existing singleuser image wastes a "
 "lot of space and requires reinstalling every system package, which can "
 "take additional time and bandwidth; the `datascience-notebook` image has "
 "been shown to grow by almost 3GB when adding manapages in this way. "
-"Enabling manpages in the base Ubuntu layer prevents this container bloat:"
+"Enabling manpages in the base Ubuntu layer prevents this container bloat."
+" Just use previous `Dockerfile` with original ubuntu image as your base "
+"container:"
 msgstr ""
 
-#: ../../using/recipes.md:276 6d4d26db3a58474ba47d2e3372718a4c
+#: ../../using/recipes.md:271 3049f60998c44ce39745d935b2412597
 msgid ""
-"```Dockerfile # Ubuntu 18.04 (bionic) from 2018-05-26 # "
-"https://github.com/docker-library/official-"
-"images/commit/aac6a45b9eb2bffb8102353c350d341a410fb169 ARG "
-"BASE_CONTAINER=ubuntu:bionic-20180526@sha256:c8c275751219dadad8fa56b3ac41ca6cb22219ff117ca98fe82b42f24e1ba64e"
-" FROM $BASE_CONTAINER"
+"```dockerfile # Ubuntu 20.04 (focal) from 2020-04-23 # https://github.com"
+"/docker-library/official-"
+"images/commit/4475094895093bcc29055409494cce1e11b52f94 ARG "
+"BASE_CONTAINER=ubuntu:focal-20200423@sha256:238e696992ba9913d24cfc3727034985abd136e08ee3067982401acdc30cbf3f"
+" ```"
 msgstr ""
 
-#: ../../using/recipes.md:282 3dd933134bb14de1aafa16e06da6856e
+#: ../../using/recipes.md:277 975a8a8c68d84055a67903d10646eef5
 msgid ""
-"ENV DEBIAN_FRONTEND noninteractive # Remove the manpage blacklist, "
-"install man, install docs RUN rm /etc/dpkg/dpkg.cfg.d/excludes \\"
-msgstr ""
-
-#: ../../using/recipes.md:290 6d483a66b6be463d8ff3fa604df31a99
-msgid ""
-"# Workaround for a mandb bug, should be fixed in mandb > 2.8.5 # "
+"For Ubuntu 18.04 (bionic) and earlier, you may also require to workaround"
+" for a mandb bug, which was fixed in mandb >= 2.8.6.1: ```dockerfile # "
 "https://git.savannah.gnu.org/cgit/man-"
-"db.git/commit/?id=8197d7824f814c5d4b992b4c8730b5b0f7ec589a RUN echo "
-"\"MANPATH_MAP /opt/conda/bin /opt/conda/man\" >> /etc/manpath.config \\"
+"db.git/commit/?id=8197d7824f814c5d4b992b4c8730b5b0f7ec589a # "
+"http://launchpadlibrarian.net/435841763/man-db_2.8.5-2_2.8.6-1.diff.gz"
 msgstr ""
 
-#: ../../using/recipes.md:293 0db33f5331de45e2b01023117baea5a3
+#: ../../using/recipes.md:284 804fe093c0d14f9eb6eb99bac60c4a17
 msgid ""
-"&& echo \"MANPATH_MAP /opt/conda/bin /opt/conda/share/man\" >> "
-"/etc/manpath.config"
+"RUN echo \"MANPATH_MAP ${CONDA_DIR}/bin ${CONDA_DIR}/man\" >> "
+"/etc/manpath.config \\"
 msgstr ""
 
-#: ../../using/recipes.md:296 72e57359169c47bebb4ee88787f42fde
+#: ../../using/recipes.md:283 036ef33b9ec547949b3eb85cdb3f9478
+msgid ""
+"&& echo \"MANPATH_MAP ${CONDA_DIR}/bin ${CONDA_DIR}/share/man\" >> "
+"/etc/manpath.config \\ && mandb"
+msgstr ""
+
+#: ../../using/recipes.md:288 065dab4d49774981b01dd66c34ec5297
 msgid ""
 "Be sure to check the current base image in `base-notebook` before "
 "building."
 msgstr ""
 
-#: ../../using/recipes.md:298 4add604d0d5c4b73b22740b3f16dbeef
+#: ../../using/recipes.md:290 1b3f3520fbb447598145831422ae7ccf
 msgid "## JupyterHub"
 msgstr ""
 
 # af0ca920391b419b805ae3809388fcf2
-#: ../../using/recipes.md:300 853a3a1cc6b143f59e6242a7a3b5bbaf
+#: ../../using/recipes.md:292 3e34d3693871427da8c63afc7b0043fc
 msgid "We also have contributed recipes for using JupyterHub."
 msgstr ""
 
-#: ../../using/recipes.md:302 74b3596a2ab34dc4a54c74c938f57764
+#: ../../using/recipes.md:294 794d16e3fe18488985a6a195b2fabd04
 msgid "### Use JupyterHub's dockerspawner"
 msgstr ""
 
 # 81e1dbb4c1c34f4c9e88630adff3d1e9
-#: ../../using/recipes.md:304 a3c3b13c19b1459ca27c002996df8f6d
+#: ../../using/recipes.md:296 c0fcc6364c6f49a19e864c4449d0787f
 msgid ""
 "In most cases for use with DockerSpawner, given any image that already "
 "has a notebook stack set up, you would only need to add:"
 msgstr ""
 
 # 837b7a2dac01402e8cd2cc398bd5d785
-#: ../../using/recipes.md:307 9058dd5ae5864187a92379d562874384
+#: ../../using/recipes.md:299 591ee82031c34a0d8135068ccc68092f
 msgid "install the jupyterhub-singleuser script (for the right Python)"
 msgstr ""
 
 # d9816cb5ae2041e2a5fde9cdfb91262f
-#: ../../using/recipes.md:308 a9faf3cdd68f450ab03acad5b434b171
+#: ../../using/recipes.md:300 dfb7ee893c19479ca99a189b7a63cf6f
 msgid "change the command to launch the single-user server"
 msgstr ""
 
-#: ../../using/recipes.md:310 697cabf18319466b86d254959f7115c2
+#: ../../using/recipes.md:302 1defe8a3713f4d1cab3ae2e4e4645183
 msgid ""
 "Swapping out the `FROM` line in the `jupyterhub/singleuser` Dockerfile "
 "should be enough for most cases."
 msgstr ""
 
-#: ../../using/recipes.md:313 34e4a86802e6446faa0cdae9cbc4c01c
+#: ../../using/recipes.md:305 58347f336bc848a78f727128016b2e10
 msgid ""
 "Credit: [Justin Tyberg](https://github.com/jtyberg), "
 "[quanghoc](https://github.com/quanghoc), and [Min "
@@ -981,99 +974,99 @@ msgid ""
 "stacks/pull/185)"
 msgstr ""
 
-#: ../../using/recipes.md:318 23eceac1b527430689a9109335b6a585
+#: ../../using/recipes.md:310 a579433a4ef0448197c5bd80112201eb
 msgid "### Containers with a specific version of JupyterHub"
 msgstr ""
 
-#: ../../using/recipes.md:320 c4bd735a7c7b4832a43100b1a3513eca
+#: ../../using/recipes.md:312 f7a38f996e1e47bab3f124e77de451ec
 msgid ""
 "To use a specific version of JupyterHub, the version of `jupyterhub` in "
 "your image should match the version in the Hub itself."
 msgstr ""
 
-#: ../../using/recipes.md:323 7b47359977664d6494f689125c69eb93
+#: ../../using/recipes.md:315 154f451bd96242cea11b100f7a9273a2
 msgid ""
-"``` FROM  jupyter/base-notebook:5ded1de07260 RUN pip install "
+"```dockerfile FROM jupyter/base-notebook:5ded1de07260 RUN pip install "
 "jupyterhub==0.8.0b1 ```"
 msgstr ""
 
-#: ../../using/recipes.md:328 50bb2ab0ac7240a79569ec0ed5856fd5
+#: ../../using/recipes.md:320 31bff412e78141ad95bef8c2d456ad6d
 msgid ""
 "Credit: [MinRK](https://github.com/jupyter/docker-"
 "stacks/issues/423#issuecomment-322767742)"
 msgstr ""
 
-#: ../../using/recipes.md:330 507cf4d4fbfb46168803e4e2c32732d3
+#: ../../using/recipes.md:322 066e693988c041098e0d626046a24849
 msgid ""
 "Ref: [https://github.com/jupyter/docker-"
 "stacks/issues/177](https://github.com/jupyter/docker-stacks/issues/177)"
 msgstr ""
 
-#: ../../using/recipes.md:333 9e6e81e0107c409a8ac3126e36a09c6e
+#: ../../using/recipes.md:325 94afe2e5dc494876a94825fe1036bfd3
 msgid "## Spark"
 msgstr ""
 
 # 975c96d6a0b843dfabd889c753671c93
-#: ../../using/recipes.md:335 fc1516f2adc445129e35377ac396ca43
+#: ../../using/recipes.md:327 dcc5a2c163094d9a89b117c01d26e330
 msgid "A few suggestions have been made regarding using Docker Stacks with spark."
 msgstr ""
 
-#: ../../using/recipes.md:337 53a37958989343ed86bdc2d37e7f3ccb
+#: ../../using/recipes.md:329 53df6dbb3fb4447794349f479e4b3325
 msgid "### Using PySpark with AWS S3"
 msgstr ""
 
 # dc4059d42eaa495f8ebca84ebc91ac09
-#: ../../using/recipes.md:339 5f8af35648ac44889417cebe2ee871c2
+#: ../../using/recipes.md:331 c951f4030eb348228275f4031b642948
 msgid "Using Spark session for hadoop 2.7.3"
 msgstr ""
 
-#: ../../using/recipes.md:341 3f066e3dde2940abb49e348925c12905
+#: ../../using/recipes.md:333 23bf61565e014c18b779f549355a881e
 msgid ""
 "```py import os # !ls /usr/local/spark/jars/hadoop* # to figure out what "
 "version of hadoop os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages "
 "\"org.apache.hadoop:hadoop-aws:2.7.3\" pyspark-shell'"
 msgstr ""
 
-#: ../../using/recipes.md:346 f54163f15a3d4a14ab864426717a03d3
+#: ../../using/recipes.md:338 3323caa618754178a73fb6c16be1b81e
 msgid "import pyspark myAccessKey = input() mySecretKey = input()"
 msgstr ""
 
-#: ../../using/recipes.md:354 8f15a33853964077bc608ba99016f655
+#: ../../using/recipes.md:346 47e5f4e312f34996b7b3b18b88900241
 msgid "spark = pyspark.sql.SparkSession.builder \\"
 msgstr ""
 
-#: ../../using/recipes.md:351 1f54c143a32f47a7a2f3b322845617de
+#: ../../using/recipes.md:343 f84d8e0d8f0f43f6a1470a4d8531a3f9
 msgid ""
 ".master(\"local[*]\") \\ .config(\"spark.hadoop.fs.s3a.access.key\", "
 "myAccessKey) \\ .config(\"spark.hadoop.fs.s3a.secret.key\", mySecretKey) "
 "\\ .getOrCreate()"
 msgstr ""
 
-#: ../../using/recipes.md:356 6f6f0564f114407d8a203a6f78a09acd
+#: ../../using/recipes.md:348 65551d47036e4f699b2b287ddad38ba7
 msgid "df = spark.read.parquet(\"s3://myBucket/myKey\") ```"
 msgstr ""
 
 # d2c12e3525bf4d9ca518fef02c4a79d3
-#: ../../using/recipes.md:359 d4a83643762f41c1a145fd55d92c901a
+#: ../../using/recipes.md:351 f6bdfe4d7293472a8a6c137e5ac8b0ca
 msgid "Using Spark context for hadoop 2.6.0"
 msgstr ""
 
-#: ../../using/recipes.md:361 c89b06e752f24f2bb219159eaca024f1
+#: ../../using/recipes.md:353 2b736bbbfdd24157b4eb7edac56da040
 msgid ""
 "```py import os os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages "
 "com.amazonaws:aws-java-sdk:1.10.34,org.apache.hadoop:hadoop-aws:2.6.0 "
 "pyspark-shell'"
 msgstr ""
 
-#: ../../using/recipes.md:365 a84711771fb94531bc3983b55a1d0052
+#: ../../using/recipes.md:357 f523acafc91a42c6a39b24c0911a22d3
 msgid "import pyspark sc = pyspark.SparkContext(\"local[*]\")"
 msgstr ""
 
-#: ../../using/recipes.md:368 d7050e0dee5446379c663cda7cef77e9
+#: ../../using/recipes.md:360 a02ab9f60a57463381dd30b359791f3f
 msgid "from pyspark.sql import SQLContext sqlContext = SQLContext(sc)"
 msgstr ""
 
-#: ../../using/recipes.md:371 0a1d9e9dd1064eb9ad65b7284d7e5b55
+#: ../../using/recipes.md:363 3c7086536fe346c5b2d17ebaf73392bc
 msgid ""
 "hadoopConf = sc._jsc.hadoopConfiguration() myAccessKey = input() "
 "mySecretKey = input() hadoopConf.set(\"fs.s3.impl\", "
@@ -1082,25 +1075,25 @@ msgid ""
 "hadoopConf.set(\"fs.s3.awsSecretAccessKey\", mySecretKey)"
 msgstr ""
 
-#: ../../using/recipes.md:378 cbeb4080c17749c4a9b50f0905ad39a2
+#: ../../using/recipes.md:370 f507bb7404c04df68c399d604b9a9cbc
 msgid "df = sqlContext.read.parquet(\"s3://myBucket/myKey\") ```"
 msgstr ""
 
-#: ../../using/recipes.md:381 9b2086846cce4a05887d524fd869ae8c
+#: ../../using/recipes.md:373 a75a0e47ac6e4987b2f51c44400c0a71
 msgid ""
 "Ref: [https://github.com/jupyter/docker-"
 "stacks/issues/127](https://github.com/jupyter/docker-stacks/issues/127)"
 msgstr ""
 
-#: ../../using/recipes.md:384 8bf6692990f649e78dcb19db3c5ce174
+#: ../../using/recipes.md:376 d953b3a835ae414f83734f6a6dcb0265
 msgid "### Using Local Spark JARs"
 msgstr ""
 
-#: ../../using/recipes.md:386 c91644ddb8854936b092c6041b9bf10f
+#: ../../using/recipes.md:378 cd4503b8d49947e2ab77d94c4bb1f318
 msgid ""
-"``` import os os.environ['PYSPARK_SUBMIT_ARGS'] = '--jars /home/jovyan"
-"/spark-streaming-kafka-assembly_2.10-1.6.1.jar pyspark-shell' import "
-"pyspark from pyspark.streaming.kafka import KafkaUtils from "
+"```python import os os.environ['PYSPARK_SUBMIT_ARGS'] = '--jars "
+"/home/jovyan/spark-streaming-kafka-assembly_2.10-1.6.1.jar pyspark-shell'"
+" import pyspark from pyspark.streaming.kafka import KafkaUtils from "
 "pyspark.streaming import StreamingContext sc = pyspark.SparkContext() ssc"
 " = StreamingContext(sc,1) broker = \"<my_broker_ip>\" directKafkaStream ="
 " KafkaUtils.createDirectStream(ssc, [\"test1\"], "
@@ -1108,17 +1101,17 @@ msgid ""
 "ssc.start() ```"
 msgstr ""
 
-#: ../../using/recipes.md:400 faa12a081dd74886925a5b997887de27
+#: ../../using/recipes.md:392 d1960d0b606346e2b23793f1ff103322
 msgid ""
 "Ref: [https://github.com/jupyter/docker-"
 "stacks/issues/154](https://github.com/jupyter/docker-stacks/issues/154)"
 msgstr ""
 
-#: ../../using/recipes.md:403 cdb7510f64a8474ab4e5b598c1b1a7c3
+#: ../../using/recipes.md:395 355aa31c464d48a98b297ecec90ac66e
 msgid "### Using spark-packages.org"
 msgstr ""
 
-#: ../../using/recipes.md:405 4287fe50222e484dad3572e57371666f
+#: ../../using/recipes.md:397 60e73d696f7a4238b8abd0be6d57ab77
 msgid ""
 "If you'd like to use packages from [spark-packages.org](https://spark-"
 "packages.org/), see "
@@ -1127,21 +1120,21 @@ msgid ""
 "environment before creating a SparkContext."
 msgstr ""
 
-#: ../../using/recipes.md:410 1b228640170348149c5a68c4729bf7e8
+#: ../../using/recipes.md:402 4aa665fdfc7c4a4b8a32a58f33102ae7
 msgid ""
 "Ref: [https://github.com/jupyter/docker-"
 "stacks/issues/43](https://github.com/jupyter/docker-stacks/issues/43)"
 msgstr ""
 
-#: ../../using/recipes.md:413 5e39632b03fc4635bfb104f94ae5aba5
+#: ../../using/recipes.md:405 da5e763665c1429bbe22f1a9b08a676d
 msgid "### Use jupyter/all-spark-notebooks with an existing Spark/YARN cluster"
 msgstr ""
 
-#: ../../using/recipes.md:415 4d4b9e03dbb54a9abf5b66c83cfd8a73
-msgid "``` FROM jupyter/all-spark-notebook"
+#: ../../using/recipes.md:407 bfa6cd3ee7de49f1a4d9cc1b2cbcbe37
+msgid "```dockerfile FROM jupyter/all-spark-notebook"
 msgstr ""
 
-#: ../../using/recipes.md:418 83bdad90174241f39aa6ef415263ef0b
+#: ../../using/recipes.md:410 9dc19026e47e408585e849561208cba6
 msgid ""
 "# Set env vars for pydoop ENV HADOOP_HOME /usr/local/hadoop-2.7.3 ENV "
 "JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64 ENV HADOOP_CONF_HOME "
@@ -1149,14 +1142,14 @@ msgid ""
 "/usr/local/hadoop-2.7.3/etc/hadoop"
 msgstr ""
 
-#: ../../using/recipes.md:424 be7cef85a71747d38cadac2353779f5b
+#: ../../using/recipes.md:416 f35f0b3ab174478cac6f7bfd194f34b8
 msgid ""
 "USER root # Add proper open-jdk-8 not just the jre, needed for pydoop RUN"
 " echo 'deb http://cdn-fastly.deb.debian.org/debian jessie-backports main'"
 " > /etc/apt/sources.list.d/jessie-backports.list && \\"
 msgstr ""
 
-#: ../../using/recipes.md:427 ed4d9e9e5b6f4452b48b66be920316c7
+#: ../../using/recipes.md:419 3cea4dc3de294d149a0f3884f61607b1
 msgid ""
 "apt-get -y update && \\ apt-get install --no-install-recommends -t "
 "jessie-backports -y openjdk-8-jdk && \\ rm /etc/apt/sources.list.d"
@@ -1164,11 +1157,11 @@ msgid ""
 "/var/lib/apt/lists/ && \\"
 msgstr ""
 
-#: ../../using/recipes.md:435 9b1fdf45e47c4f34962e92aeb747c2fe
+#: ../../using/recipes.md:427 b4cba9dfd2ee4cd98316e4800670e760
 msgid "# Add hadoop binaries"
 msgstr ""
 
-#: ../../using/recipes.md:433 58a7ea0450db43a1a5c11c0384777782
+#: ../../using/recipes.md:425 9ac735c7935d44e7b25222007f52b41f
 msgid ""
 "wget "
 "http://mirrors.ukfast.co.uk/sites/ftp.apache.org/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz"
@@ -1177,41 +1170,41 @@ msgid ""
 " \\"
 msgstr ""
 
-#: ../../using/recipes.md:440 816f60db55244d3d9fd76ea135a4e8b1
+#: ../../using/recipes.md:432 e6617c2f42694451ad09e6905bb50dfc
 msgid "# Install os dependencies required for pydoop, pyhive"
 msgstr ""
 
-#: ../../using/recipes.md:438 c4772f5b6c854f788797cba48a7747e4
+#: ../../using/recipes.md:430 8c0dea2b2cc84081a4c14f22ac0b3c67
 msgid ""
 "apt-get update && \\ apt-get install --no-install-recommends -y build-"
 "essential python-dev libsasl2-dev && \\ apt-get clean && \\ rm -rf "
 "/var/lib/apt/lists/* && \\"
 msgstr ""
 
-#: ../../using/recipes.md:442 81fb024c66074617966b2dd955beb170
+#: ../../using/recipes.md:434 030ee04013d541b5acdd686182c4743e
 msgid ""
 "# Remove the example hadoop configs and replace # with those for our "
 "cluster. # Alternatively this could be mounted as a volume"
 msgstr ""
 
-#: ../../using/recipes.md:445 af17a0497f55416ebf7aeb5daceb58e5
+#: ../../using/recipes.md:437 d1813f48d7d84d47a536c94e8b444c29
 msgid "rm -f /usr/local/hadoop-2.7.3/etc/hadoop/*"
 msgstr ""
 
-#: ../../using/recipes.md:447 37cee92ad2d64327b6f0ec41581d47d1
+#: ../../using/recipes.md:439 a7cb36ddd4ed4aa29fdc8d55ac440186
 msgid ""
 "# Download this from ambari / cloudera manager and copy here COPY "
 "example-hadoop-conf/ /usr/local/hadoop-2.7.3/etc/hadoop/"
 msgstr ""
 
-#: ../../using/recipes.md:450 91963c8417c748389488ce545e7031ef
+#: ../../using/recipes.md:442 1c883802e8df4e58a169352f6de191d5
 msgid ""
 "# Spark-Submit doesn't work unless I set the following RUN echo "
 "\"spark.driver.extraJavaOptions -Dhdp.version=2.5.3.0-37\" >> "
 "/usr/local/spark/conf/spark-defaults.conf  && \\"
 msgstr ""
 
-#: ../../using/recipes.md:452 699662d832874d4392fa1320d918122d
+#: ../../using/recipes.md:444 63b5edc2c91549aa9e8a77a422581f31
 msgid ""
 "echo \"spark.yarn.am.extraJavaOptions -Dhdp.version=2.5.3.0-37\" >> "
 "/usr/local/spark/conf/spark-defaults.conf && \\ echo "
@@ -1224,25 +1217,25 @@ msgid ""
 "/etc/hadoop/conf/"
 msgstr ""
 
-#: ../../using/recipes.md:461 ../../using/recipes.md:509
-#: 427a41c9c9ed456d9fd88a5d980bf05a cf247972e0b14108a6d2489bb1374710
+#: ../../using/recipes.md:453 ../../using/recipes.md:501
+#: 26da8416037d4f30aa3d31c0cd54acb0 ac1b3167c1fb43368525608c0664832f
 msgid "USER $NB_USER"
 msgstr ""
 
-#: ../../using/recipes.md:463 96d86cb080b044128f539f74ddfad520
+#: ../../using/recipes.md:455 8159865655ae47b2a607da3a2e9936a5
 msgid ""
 "# Install useful jupyter extensions and python libraries like : # - "
 "Dashboards # - PyDoop # - PyHive RUN pip install jupyter_dashboards faker"
 " && \\"
 msgstr ""
 
-#: ../../using/recipes.md:468 2b61a12dc9364cd981bfc213053d2072
+#: ../../using/recipes.md:460 24dcbc4c8475497392c892a21baf9b3b
 msgid ""
 "jupyter dashboards quick-setup --sys-prefix && \\ pip2 install pyhive "
 "pydoop thrift sasl thrift_sasl faker"
 msgstr ""
 
-#: ../../using/recipes.md:471 f2692c952e5f44fda4e64d9827c5e4c6
+#: ../../using/recipes.md:463 551df2ec522545fca6f7d8777a707433
 msgid ""
 "USER root # Ensure we overwrite the kernel config so that toree connects "
 "to cluster RUN jupyter toree install --sys-prefix --spark_opts=\"--master"
@@ -1251,25 +1244,25 @@ msgid ""
 "spark.hadoop.yarn.timeline-service.enabled=false\" USER $NB_USER ```"
 msgstr ""
 
-#: ../../using/recipes.md:477 d65d43bfe7fd414ab6672cc050b20ec2
+#: ../../using/recipes.md:469 d83ba09b25f6411488570febc698fcb6
 msgid ""
 "Credit: [britishbadger](https://github.com/britishbadger) from [docker-"
 "stacks/issues/369](https://github.com/jupyter/docker-stacks/issues/369)"
 msgstr ""
 
-#: ../../using/recipes.md:480 5c65651fdeba421b8b0372ee7a2ca30c
+#: ../../using/recipes.md:472 823c312d7fd64db78a5d1ebf75648481
 msgid ""
 "## Run Jupyter Notebook/Lab inside an already secured environment (i.e., "
 "with no token)"
 msgstr ""
 
-#: ../../using/recipes.md:482 e45460f31e0e498889f818810a1385fc
+#: ../../using/recipes.md:474 60dc2390221549758985fa027ebf415b
 msgid ""
 "(Adapted from [issue 728](https://github.com/jupyter/docker-"
 "stacks/issues/728))"
 msgstr ""
 
-#: ../../using/recipes.md:484 c4f4aca14ce04d7691e524edd4f3887d
+#: ../../using/recipes.md:476 607d83442d9c452097d80fb390dcc4ff
 msgid ""
 "The default security is very good. There are use cases, encouraged by "
 "containers, where the jupyter container and the system it runs within, "
@@ -1279,131 +1272,131 @@ msgid ""
 msgstr ""
 
 # 7476a6d5eae74ecaae966e56390c096e
-#: ../../using/recipes.md:489 55c12f12c57444a0b888f9150d0eba8a
+#: ../../using/recipes.md:481 dbe41405eead47c29f9bb8e3654603b1
 msgid "For jupyterlab:"
 msgstr ""
 
-#: ../../using/recipes.md:491 9f71f77d2ed0484babfafd059c99e1d6
+#: ../../using/recipes.md:483 26c8ee8714174103bdd002625c44fbff
 msgid ""
-"``` docker run jupyter/base-notebook:6d2a05346196 start.sh jupyter lab "
-"--LabApp.token='' ```"
+"```bash docker run jupyter/base-notebook:6d2a05346196 start.sh jupyter "
+"lab --LabApp.token='' ```"
 msgstr ""
 
 # f2efc5a0ba6b4c53b2047cc5f22bdbaa
-#: ../../using/recipes.md:495 a3d3f120e5714b3095e4d580510b91bf
+#: ../../using/recipes.md:487 bdbd333533364a12979e28ea1134ccfb
 msgid "For jupyter classic:"
 msgstr ""
 
-#: ../../using/recipes.md:497 d3c5f5d169604ab2826f8861e301ada5
+#: ../../using/recipes.md:489 7aed8161bb024de7bdd9441b8a40f7e3
 msgid ""
-"``` docker run jupyter/base-notebook:6d2a05346196 start.sh jupyter "
+"```bash docker run jupyter/base-notebook:6d2a05346196 start.sh jupyter "
 "notebook --NotebookApp.token='' ```"
 msgstr ""
 
-#: ../../using/recipes.md:501 aa25f843684440398ab455ec2071da0a
+#: ../../using/recipes.md:493 cff390ba6c8f400393abe5a94bb6b434
 msgid "## Enable nbextension spellchecker for markdown (or any other nbextension)"
 msgstr ""
 
 # 8ccfbcb4264f48d0b6709fe81aa0a86d
-#: ../../using/recipes.md:503 f0d732be577e484f9ce4d2e3b6949155
+#: ../../using/recipes.md:495 57a728281af0438aa3e8483113e3ebcd
 msgid "NB: this works for classic notebooks only"
 msgstr ""
 
-#: ../../using/recipes.md:505 8a912de20fba422a89c585d45edc5599
+#: ../../using/recipes.md:497 6f26e12abe65424494da2e70bd649ef9
 msgid ""
-"``` # Update with your base image of choice FROM jupyter/minimal-"
-"notebook:latest"
+"```dockerfile # Update with your base image of choice FROM jupyter"
+"/minimal-notebook:latest"
 msgstr ""
 
-#: ../../using/recipes.md:513 76ee78d2b2ca4a7e996bddef7bd46c9a
+#: ../../using/recipes.md:505 d9b73114dfd445858997ba0b84b4e643
 msgid "RUN pip install jupyter_contrib_nbextensions && \\"
 msgstr ""
 
-#: ../../using/recipes.md:512 7ec5edceb9864f0fab7210a3b5fce3da
+#: ../../using/recipes.md:504 9cffe19b6684436590d37a2e53908e9e
 msgid ""
 "jupyter contrib nbextension install --user && \\ # can modify or enable "
 "additional extensions here jupyter nbextension enable spellchecker/main "
 "--user"
 msgstr ""
 
-#: ../../using/recipes.md:517 7f496cf8991c4991a599f15e06111c6f
+#: ../../using/recipes.md:509 e96062446c71485782567978f6e55038
 msgid ""
 "Ref: [https://github.com/jupyter/docker-"
 "stacks/issues/675](https://github.com/jupyter/docker-stacks/issues/675)"
 msgstr ""
 
-#: ../../using/recipes.md:520 91f91887cef140e980c554ecef9993ce
+#: ../../using/recipes.md:512 b9c3c807e58241deac8e0e8b09867c16
 msgid "## Enable auto-sklearn notebooks"
 msgstr ""
 
-#: ../../using/recipes.md:522 1259836d1da64e1d810d3b8947116902
+#: ../../using/recipes.md:514 f62ca4dd05814c988b5bac3e63667a32
 msgid ""
 "Using `auto-sklearn` requires `swig`, which the other notebook images "
 "lack, so it cant be experimented with. Also, there is no Conda package "
 "for `auto-sklearn`."
 msgstr ""
 
-#: ../../using/recipes.md:524 b13a0e2eb39849d2a197730fdd19ccd8
+#: ../../using/recipes.md:516 6d8ff6eef3384be4840d7b6c3420d919
 msgid ""
-"``` ARG BASE_CONTAINER=jupyter/scipy-notebook FROM jupyter/scipy-"
-"notebook:latest"
+"```dockerfile ARG BASE_CONTAINER=jupyter/scipy-notebook FROM jupyter"
+"/scipy-notebook:latest"
 msgstr ""
 
-#: ../../using/recipes.md:530 65d542c92d0244b29180bea5eff30102
+#: ../../using/recipes.md:522 efc249aaefe540f49cebcee1fa7ab9da
 msgid ""
 "# autosklearn requires swig, which no other image has RUN apt-get update "
 "&& \\"
 msgstr ""
 
-#: ../../using/recipes.md:532 73452bbf603d4a46b7d6a204e195d619
+#: ../../using/recipes.md:524 922e81dd41034f85a404d5bb668e7ca6
 msgid ""
 "apt-get install -y --no-install-recommends swig && \\ apt-get clean && \\"
 " rm -rf /var/lib/apt/lists/*"
 msgstr ""
 
-#: ../../using/recipes.md:537 c2342d0f68e24528869516bb1b63c164
+#: ../../using/recipes.md:529 f5e7f938231e405e9cbfc6c1f51ab7cc
 msgid "USER $NB_UID"
 msgstr ""
 
-#: ../../using/recipes.md:539 93ba142dc5f548299030fe69c6aa62f9
+#: ../../using/recipes.md:531 6987a83af87945949c0b8d236495657c
 msgid "RUN pip install --quiet --no-cache-dir auto-sklearn ```"
 msgstr ""
 
-#: ../../using/running.md:1 fba27e5e00af4db5a794438719d4f322
+#: ../../using/running.md:1 fd8b743aed624777a106d50ef4121662
 msgid "# Running a Container"
 msgstr ""
 
 # 1f345e7a53e94439b936b3f4bbc877da
 # 324906e630c646b0ae10bbff6ed587fa
 #: ../../using/running.md:3 ../../using/selecting.md:7
-#: 34b60a687f1045d8aab3c482c799bc11 f7ab8beecb0749b08c59116190f58af5
+#: 8f3c747f2ca549748919f12634268960 d50e596554ce49768e2c53b833b7da59
 msgid "Using one of the Jupyter Docker Stacks requires two choices:"
 msgstr ""
 
 # 781cbaffaea24fb08451cc83327cfa9b
 # 1c6c83776a3b4a27a8ed4128a0dceeb7
 #: ../../using/running.md:5 ../../using/selecting.md:9
-#: 19c7302de2c346128fb1b376907a92ba e738743713834fdfa1ff508387a41737
+#: b2fb4271614c4e199eb07b3368f1d57b fd8c337022fa4fae835219b4f2ba62ca
 msgid "Which Docker image you wish to use"
 msgstr ""
 
 # 632f67c9207e4ed9ba01bf59c4d942f7
 # ab191cfc95204429b7c0271ecdf69d33
 #: ../../using/running.md:6 ../../using/selecting.md:10
-#: cc4faf89c6d84441b5b0fb3c5f8d243a ecb8130a65804123a198a523ab8ca9ac
+#: 5965689bda5b4d17b00dd1ae10c15db3 f132ce8f6bf9406f8827c14cc6856342
 msgid "How you wish to start Docker containers from that image"
 msgstr ""
 
 # ebf870aa1ede4e2ab8fdcb2cef0fd610
-#: ../../using/running.md:8 ce05e18d873241d782921dcd71aa25b1
+#: ../../using/running.md:8 92e0be2d299c43a7a148753df4b176d7
 msgid "This section provides details about the second."
 msgstr ""
 
-#: ../../using/running.md:10 538dc1794e9a497ebc8624decf465ce1
+#: ../../using/running.md:10 80833adbdf2e4389a676d7db850cb862
 msgid "## Using the Docker CLI"
 msgstr ""
 
-#: ../../using/running.md:12 da06304a7f8f43b79dd0a2ad27ecc929
+#: ../../using/running.md:12 02652fa63fa245ca930081bb32ef0c6c
 msgid ""
 "You can launch a local Docker container from the Jupyter Docker Stacks "
 "using the [Docker command line "
@@ -1412,7 +1405,7 @@ msgid ""
 "following are some common patterns."
 msgstr ""
 
-#: ../../using/running.md:14 75d2a272d8624b3cbfb5e10b853c5bb0
+#: ../../using/running.md:14 bee8732d8f7b472c893917674bfa8652
 msgid ""
 "**Example 1** This command pulls the `jupyter/scipy-notebook` image "
 "tagged `2c80cf3537ca` from Docker Hub if it is not already present on the"
@@ -1421,11 +1414,11 @@ msgid ""
 "terminal and include a URL to the notebook server."
 msgstr ""
 
-#: ../../using/running.md:16 54d8f1e1359d4c9ea6777e6a82e056d4
+#: ../../using/running.md:16 20c67ef216174475bf5c1b9a6efb00ab
 msgid "``` docker run -p 8888:8888 jupyter/scipy-notebook:2c80cf3537ca"
 msgstr ""
 
-#: ../../using/running.md:19 b48f14b8cad048218d02ba49c67368b8
+#: ../../using/running.md:19 eda7e12347a142eeade1277432b8dfd4
 msgid ""
 "Executing the command: jupyter notebook [I 15:33:00.567 NotebookApp] "
 "Writing notebook server cookie secret to "
@@ -1445,25 +1438,25 @@ msgid ""
 msgstr ""
 
 #: ../../using/running.md:31 ../../using/running.md:72
-#: ../../using/running.md:94 42965d97806d4fe79b0ed3afc65e64b5
-#: b5c73d27ebf241eb839671f7e55b7e9d d21c81d0e2454e1a9429cbbce55d4e75
+#: ../../using/running.md:94 646058cb6bef43d78fcc78ebdbdeb0b7
+#: 9248d01d686f40fcb81989861d4ea496 e13bdc54aaab4befb90a8072aeb76357
 msgid ""
 "Copy/paste this URL into your browser when you connect for the first "
 "time, to login with a token:"
 msgstr ""
 
-#: ../../using/running.md:33 0b92f6ed59934ae89a80d8b2b7973170
+#: ../../using/running.md:33 e577c03d64644bc99c6e68c37e0da616
 msgid "http://localhost:8888/?token=112bb073331f1460b73768c76dffb2f87ac1d4ca7870d46a"
 msgstr ""
 
-#: ../../using/running.md:36 0813c89618db44bc8a57f80d4c455bfb
+#: ../../using/running.md:36 42982d6d89ac45cab7e83634e6c10f0c
 msgid ""
 "Pressing `Ctrl-C` shuts down the notebook server but leaves the container"
 " intact on disk for later restart or permanent deletion using commands "
 "like the following:"
 msgstr ""
 
-#: ../../using/running.md:38 f96623927d9d4acc8b9c69eca451921f
+#: ../../using/running.md:38 a7c2ba9f0f7d4ece8186e73cc2c06eae
 msgid ""
 "``` # list containers docker ps -a CONTAINER ID        IMAGE"
 "                   COMMAND                  CREATED    STATUS"
@@ -1472,7 +1465,7 @@ msgid ""
 "Exited (0) 39 seconds ago                       cocky_mirzakhani"
 msgstr ""
 
-#: ../../using/running.md:44 14a9b74c10f64721b03daca0ecc9a637
+#: ../../using/running.md:44 c9a391500b174f43bc446260df4d2581
 msgid ""
 "# start the stopped container docker start -a d67fe77f1a84 Executing the "
 "command: jupyter notebook [W 16:45:02.020 NotebookApp] WARNING: The "
@@ -1480,11 +1473,11 @@ msgid ""
 "encryption. This is not recommended. ..."
 msgstr ""
 
-#: ../../using/running.md:50 eb229a5ff134471890e1034ce4689c5a
+#: ../../using/running.md:50 9d8b828c703644988b1c448cb8f6283c
 msgid "# remove the stopped container docker rm d67fe77f1a84 d67fe77f1a84 ```"
 msgstr ""
 
-#: ../../using/running.md:55 dcc8f8cc75094cc09835fb673c344f7b
+#: ../../using/running.md:55 f60ef5cddde349a780e1b5a642128b85
 msgid ""
 "**Example 2** This command pulls the `jupyter/r-notebook` image tagged "
 "`e5c5a7d3e52d` from Docker Hub if it is not already present on the local "
@@ -1494,13 +1487,13 @@ msgid ""
 "container port (8888) instead of the the correct host port (10000)."
 msgstr ""
 
-#: ../../using/running.md:57 6a18e2589b264aca85d3ed91d945b16b
+#: ../../using/running.md:57 bbfd2d66b5c24092a3788ee630092e59
 msgid ""
 "``` docker run --rm -p 10000:8888 -v \"$PWD\":/home/jovyan/work "
 "jupyter/r-notebook:e5c5a7d3e52d"
 msgstr ""
 
-#: ../../using/running.md:60 92c3308ae2bf40b9b13c1785b348dea0
+#: ../../using/running.md:60 e8707e8e4aed4249a291431c06e76c9e
 msgid ""
 "Executing the command: jupyter notebook [I 19:31:09.573 NotebookApp] "
 "Writing notebook server cookie secret to "
@@ -1519,18 +1512,18 @@ msgid ""
 " all kernels (twice to skip confirmation). [C 19:31:12.122 NotebookApp]"
 msgstr ""
 
-#: ../../using/running.md:74 23a8ed3bb9334e438523d15577e6cf67
+#: ../../using/running.md:74 e365737075c64de89bf1525f22f944e2
 msgid "http://localhost:8888/?token=3b8dce890cb65570fb0d9c4a41ae067f7604873bd604f5ac"
 msgstr ""
 
-#: ../../using/running.md:77 b6f5b7da550b41d5ad39b2cff29e76be
+#: ../../using/running.md:77 52db7713ba354292952a4d47955c2dc9
 msgid ""
 "Pressing `Ctrl-C` shuts down the notebook server and immediately destroys"
 " the Docker container. Files written to `~/work` in the container remain "
 "touched. Any other changes made in the container are lost."
 msgstr ""
 
-#: ../../using/running.md:79 2ee7e8749dd54f7cb34923a1040d1e18
+#: ../../using/running.md:79 1d61ce5687d3486d9d480fcbb4de266c
 msgid ""
 "**Example 3** This command pulls the `jupyter/all-spark-notebook` image "
 "currently tagged `latest` from Docker Hub if an image tagged `latest` is "
@@ -1539,33 +1532,33 @@ msgid ""
 "randomly selected port."
 msgstr ""
 
-#: ../../using/running.md:81 64ce4f94438f4e76bb0ac9ac0ddbe7e1
+#: ../../using/running.md:81 13a731d5db3646a09566f49614ba0470
 msgid "``` docker run -d -P --name notebook jupyter/all-spark-notebook ```"
 msgstr ""
 
 # 9a561b9bb5944059801c71862521d66a
-#: ../../using/running.md:85 286ab48fa11349a3902c2837a4830107
+#: ../../using/running.md:85 b31ee69ac5cb4b2f883bf146c7ad34b6
 msgid ""
 "The assigned port and notebook server token are visible using other "
 "Docker commands."
 msgstr ""
 
-#: ../../using/running.md:87 799e9e40e1f5479ebd67b292ed0d7aa3
+#: ../../using/running.md:87 c282ae9d89fa41748315e2e99080d7e0
 msgid ""
 "``` # get the random host port assigned to the container port 8888 docker"
 " port notebook 8888 0.0.0.0:32769"
 msgstr ""
 
-#: ../../using/running.md:92 78abb2ffc58c4f2c9f21eb278b8a82d6
+#: ../../using/running.md:92 2b448e13dc524dd4964a7065ffa8d705
 msgid "# get the notebook token from the logs docker logs --tail 3 notebook"
 msgstr ""
 
-#: ../../using/running.md:96 66ebf555911b400d92ca560193111d89
+#: ../../using/running.md:96 0357ea80f58d4a92b0f934800c891929
 msgid "http://localhost:8888/?token=15914ca95f495075c0aa7d0e060f1a78b6d94f70ea373b00"
 msgstr ""
 
 # c4bc333e19324e2a93118e21b1f8f360
-#: ../../using/running.md:99 3fb498d670b64913bdf2698895aa766a
+#: ../../using/running.md:99 43985c615fd1449da4a38962f511aeaa
 msgid ""
 "Together, the URL to visit on the host machine to access the server in "
 "this case is "
@@ -1573,25 +1566,25 @@ msgid ""
 msgstr ""
 
 # bf82931e197b40ad940d9969993120a2
-#: ../../using/running.md:101 19f387cb741f453eb83587d5591c8899
+#: ../../using/running.md:101 fbea4436422a4753b0a6f68b1a906eaf
 msgid ""
 "The container runs in the background until stopped and/or removed by "
 "additional Docker commands."
 msgstr ""
 
-#: ../../using/running.md:103 8a6c3242eade414289db5a643e8bb1ee
+#: ../../using/running.md:103 b3bb9eb3aa884d38b64978b1919e6df9
 msgid "``` # stop the container docker stop notebook notebook"
 msgstr ""
 
-#: ../../using/running.md:108 da042b3ce4704d9fae032cd6a14e6e0d
+#: ../../using/running.md:108 b0dd998a99324759b3b0a2341738a677
 msgid "# remove the container permanently docker rm notebook notebook ```"
 msgstr ""
 
-#: ../../using/running.md:113 1a88350135c14edaa9c48e1a47f63a86
+#: ../../using/running.md:113 00cdaab452444207b2b63e1ac7c24f0c
 msgid "## Using Binder"
 msgstr ""
 
-#: ../../using/running.md:115 ff84b1deac0f4ceabfd61839ca6a9756
+#: ../../using/running.md:115 ce81b27dea954f5da22d411e54d1d51a
 msgid ""
 "[Binder](https://mybinder.org/) is a service that allows you to create "
 "and share custom computing environments for projects in version control. "
@@ -1605,11 +1598,11 @@ msgid ""
 "instructions."
 msgstr ""
 
-#: ../../using/running.md:117 32f53c7ccfad43bfa4c9ab5fa0c4d7fc
+#: ../../using/running.md:117 172d350f221d4573bab9dcbe472d7bfc
 msgid "## Using JupyterHub"
 msgstr ""
 
-#: ../../using/running.md:119 73df17082d374675abc1a8de52543404
+#: ../../using/running.md:119 4b1d462e66a94efcbb927ff09c6872a1
 msgid ""
 "You can configure JupyterHub to launcher Docker containers from the "
 "Jupyter Docker Stacks images. If you've been following the [Zero to "
@@ -1623,11 +1616,11 @@ msgid ""
 "[dockerspawner](https://github.com/jupyterhub/dockerspawner) instead."
 msgstr ""
 
-#: ../../using/running.md:121 58dcc4190ed14139b97a1d96f10d0728
+#: ../../using/running.md:121 848cf5f560384424baa6b1f106ab2f5f
 msgid "## Using Other Tools and Services"
 msgstr ""
 
-#: ../../using/running.md:123 a152dbc2bdad48cc9dd1054be14ba59e
+#: ../../using/running.md:123 bcb3798ccf3b4472aed39765e57cc8e0
 msgid ""
 "You can use the Jupyter Docker Stacks with any Docker-compatible "
 "technology (e.g., [Docker Compose](https://docs.docker.com/compose/), "
@@ -1637,32 +1630,32 @@ msgid ""
 "containers from these images."
 msgstr ""
 
-#: ../../using/selecting.md:1 7dec8e952062460e8602bdf00252e6c5
+#: ../../using/selecting.md:1 18345bc42e7a45e18d105778bd9617d7
 msgid "# Selecting an Image"
 msgstr ""
 
-#: ../../using/selecting.md:3 0e9d33ed27ba413aba11ba0f2218b8c1
+#: ../../using/selecting.md:3 3d08bf4ef9b1475f9634d17a0e050fff
 msgid "[Core Stacks](#core-stacks)"
 msgstr ""
 
-#: ../../using/selecting.md:4 62187a2897d740e6b2a6b4e8a19cfdd3
+#: ../../using/selecting.md:4 7b3a1e76864e44aa90cf477bea1d130a
 msgid "[Image Relationships](#image-relationships)"
 msgstr ""
 
-#: ../../using/selecting.md:5 6dc339251b174962ad47f63fdce6bdc5
+#: ../../using/selecting.md:5 cded0110062347fdb5f149a60fcdfb33
 msgid "[Community Stacks](#community-stacks)"
 msgstr ""
 
 # af7e19bb10ec44348e8121be4129ce8a
-#: ../../using/selecting.md:12 b3b78cdb88ee4eed88066a46d14c6226
+#: ../../using/selecting.md:12 f9cb12a50f4944f8b503facf5a5e9e58
 msgid "This section provides details about the first."
 msgstr ""
 
-#: ../../using/selecting.md:14 e53b1d8e2a1d4362b851c8c5f7955b5a
+#: ../../using/selecting.md:14 aabda4499aa5438eb3da0c649d511c7e
 msgid "## Core Stacks"
 msgstr ""
 
-#: ../../using/selecting.md:16 f56930f4c38f4ba786c425944701cdce
+#: ../../using/selecting.md:16 e582c0e8297c4281a5c098fac914f0fa
 msgid ""
 "The Jupyter team maintains a set of Docker image definitions in the "
 "[https://github.com/jupyter/docker-stacks](https://github.com/jupyter"
@@ -1670,11 +1663,11 @@ msgid ""
 "images including their contents, relationships, and versioning strategy."
 msgstr ""
 
-#: ../../using/selecting.md:19 d8d68a60d5cb416d99077760b2992de8
+#: ../../using/selecting.md:19 d18e2a1a841042b580e637697696e60f
 msgid "### jupyter/base-notebook"
 msgstr ""
 
-#: ../../using/selecting.md:21 5c253281771c4679bbb98949304c5661
+#: ../../using/selecting.md:21 5e43e2dfc13f4d8e99f55f764c9d1463
 msgid ""
 "[Source on GitHub](https://github.com/jupyter/docker-stacks/tree/master"
 "/base-notebook) | [Dockerfile commit history](https://github.com/jupyter"
@@ -1682,62 +1675,62 @@ msgid ""
 "image tags](https://hub.docker.com/r/jupyter/base-notebook/tags/)"
 msgstr ""
 
-#: ../../using/selecting.md:25 c7b666940192441582206d15a54b3599
+#: ../../using/selecting.md:25 ad0914c727ac43abbbc5f7824479e3e4
 msgid ""
 "`jupyter/base-notebook` is a small image supporting the [options common "
 "across all core stacks](common.md). It is the basis for all other stacks."
 msgstr ""
 
-#: ../../using/selecting.md:27 9e2afaceca7e430795a070e53f745e53
+#: ../../using/selecting.md:27 60605f116ea84e05af0e7df55419432a
 msgid ""
 "Minimally-functional Jupyter Notebook server (e.g., no LaTeX support for "
 "saving notebooks as PDFs)"
 msgstr ""
 
-#: ../../using/selecting.md:28 7553be20da4744838a4215b8da253a4c
+#: ../../using/selecting.md:28 f88a652a1dd54a3196cf58f6fcb14488
 msgid "[Miniconda](https://conda.io/miniconda.html) Python 3.x in `/opt/conda`"
 msgstr ""
 
 # c5732a5536554f91b8dd7e8946beaab8
-#: ../../using/selecting.md:29 808c0b2a227d4e3d8cc47c8d6c22f862
+#: ../../using/selecting.md:29 84125b8c343248f8953e4bbe104715e1
 msgid "No preinstalled scientific computing packages"
 msgstr ""
 
-#: ../../using/selecting.md:30 deda517e50bf458e9ca5c418ab426954
+#: ../../using/selecting.md:30 bb2b880f70054fe4838eb70c8aeb2c4b
 msgid ""
 "Unprivileged user `jovyan` (`uid=1000`, configurable, see options) in "
 "group `users` (`gid=100`) with ownership over the `/home/jovyan` and "
 "`/opt/conda` paths"
 msgstr ""
 
-#: ../../using/selecting.md:31 5f81218504094df28a9459e80a56e905
+#: ../../using/selecting.md:31 de0ff8b3a77d4cf08f18ea85e66886ed
 msgid ""
 "`tini` as the container entrypoint and a `start-notebook.sh` script as "
 "the default command"
 msgstr ""
 
-#: ../../using/selecting.md:32 e1f93f6cf2c14df19f8eda02022e17ee
+#: ../../using/selecting.md:32 2b3cc6dd0f6c45d3a78a98d10e3186d9
 msgid ""
 "A `start-singleuser.sh` script useful for launching containers in "
 "JupyterHub"
 msgstr ""
 
-#: ../../using/selecting.md:33 34be187690a24837a6c7a491abb1ae05
+#: ../../using/selecting.md:33 e3f7907722c7414188aebd13c4c69e35
 msgid ""
 "A `start.sh` script useful for running alternative commands in the "
 "container (e.g. `ipython`, `jupyter kernelgateway`, `jupyter lab`)"
 msgstr ""
 
 # 075e6ffe0f5b4d508d555992f5dd6fe1
-#: ../../using/selecting.md:34 762efa4ab79e4d93a84a688d0442c7af
+#: ../../using/selecting.md:34 e851f4f792bd4e32a80f954068a9665b
 msgid "Options for a self-signed HTTPS certificate and passwordless sudo"
 msgstr ""
 
-#: ../../using/selecting.md:36 5b5b3796648041e7a39824bbeab28262
+#: ../../using/selecting.md:36 8f1fd57858004985ae16929d38b5df94
 msgid "### jupyter/minimal-notebook"
 msgstr ""
 
-#: ../../using/selecting.md:38 283b8f818a204f8e925638aa941d50dd
+#: ../../using/selecting.md:38 b07d0c2c2c61450e943fd4615969a321
 msgid ""
 "[Source on GitHub](https://github.com/jupyter/docker-stacks/tree/master"
 "/minimal-notebook) | [Dockerfile commit "
@@ -1746,21 +1739,21 @@ msgid ""
 "tags](https://hub.docker.com/r/jupyter/minimal-notebook/tags/)"
 msgstr ""
 
-#: ../../using/selecting.md:42 8fb9db1a03124fe3b1064af57f678e7c
+#: ../../using/selecting.md:42 7b92efd05e5743f4bb3ccec054483072
 msgid ""
 "`jupyter/minimal-notebook` adds command line tools useful when working in"
 " Jupyter applications."
 msgstr ""
 
-#: ../../using/selecting.md:44 5e0fecbcbe394690b89c568be0f58ebb
+#: ../../using/selecting.md:44 67180b79e91c48218e0d30d20561482a
 msgid "Everything in `jupyter/base-notebook`"
 msgstr ""
 
-#: ../../using/selecting.md:45 9cc61ac70cf74bac8ede94c8c07a1d24
+#: ../../using/selecting.md:45 b9a5ec713278483fb24de84232e7f0ad
 msgid "[TeX Live](https://www.tug.org/texlive/) for notebook document conversion"
 msgstr ""
 
-#: ../../using/selecting.md:46 8d204093766b4f5b8ca099cf0d553c67
+#: ../../using/selecting.md:46 82473e004e764af985697be29ef371f6
 msgid ""
 "[git](https://git-scm.com/), [emacs](https://www.gnu.org/software/emacs/)"
 " (actually `emacs-nox`), [vi](https://vim.org/) (actually `vim-tiny`), "
@@ -1768,11 +1761,11 @@ msgid ""
 "editor.org/), tzdata, and unzip"
 msgstr ""
 
-#: ../../using/selecting.md:48 d289d79abd814aeeb39c38f9db7c03dc
+#: ../../using/selecting.md:48 31fb24f1a9564dee91a3adf52da926f5
 msgid "### jupyter/r-notebook"
 msgstr ""
 
-#: ../../using/selecting.md:50 aefc7fb9762c415a81dd246df6f91e76
+#: ../../using/selecting.md:50 694b916c152c4e1982722db127e07097
 msgid ""
 "[Source on GitHub](https://github.com/jupyter/docker-"
 "stacks/tree/master/r-notebook) | [Dockerfile commit "
@@ -1781,33 +1774,33 @@ msgid ""
 "tags](https://hub.docker.com/r/jupyter/r-notebook/tags/)"
 msgstr ""
 
-#: ../../using/selecting.md:54 26d00060878f487897d377f73bdc7031
+#: ../../using/selecting.md:54 1ac6f5ef20e44f959db0b7304b02b005
 msgid "`jupyter/r-notebook` includes popular packages from the R ecosystem."
 msgstr ""
 
 #: ../../using/selecting.md:56 ../../using/selecting.md:78
-#: 48cfa0f9e27f4930b57bdffa31f58580 b6dd1cee96eb4b7a940c698bb510b87a
+#: 5c08ccb0ec424e95849996dc886bc505 d3e19d32832e446eba4cea635087400e
 msgid "Everything in `jupyter/minimal-notebook` and its ancestor images"
 msgstr ""
 
-#: ../../using/selecting.md:57 9a19e295b04e4bd6871af0dc4cafca74
+#: ../../using/selecting.md:57 f6f01a123d9b47db9ce2e4e65b3d9d36
 msgid "The [R](https://www.r-project.org/) interpreter and base environment"
 msgstr ""
 
-#: ../../using/selecting.md:58 ../../using/selecting.md:134
-#: bd2d955dd3ee487cbc38a1dfb0f69419 d94f16640ac247ce83178aa74a26fcdb
+#: ../../using/selecting.md:58 ../../using/selecting.md:133
+#: 507f1146a3ea48beaf5373cf4e58ee8e d59810fd366d46d386c3bca57990121e
 msgid ""
 "[IRKernel](https://irkernel.github.io/) to support R code in Jupyter "
 "notebooks"
 msgstr ""
 
-#: ../../using/selecting.md:59 7a5d87c1a34f4c38b10600cade7dfeb7
+#: ../../using/selecting.md:59 9b338444fefc4287a748de924cd84327
 msgid ""
 "[tidyverse](https://www.tidyverse.org/) packages, including "
 "[ggplot2](http://ggplot2.org/), [dplyr](http://dplyr.tidyverse.org/),"
 msgstr ""
 
-#: ../../using/selecting.md:60 b936ea0549fc46bea9ee7a851d83aefb
+#: ../../using/selecting.md:60 8faa73cf61d546e29e9a4cb68bc66303
 msgid ""
 "[tidyr](http://tidyr.tidyverse.org/), "
 "[readr](http://readr.tidyverse.org/), "
@@ -1817,26 +1810,24 @@ msgid ""
 "[lubridate](http://lubridate.tidyverse.org/), and "
 "[broom](https://cran.r-project.org/web/packages/broom/vignettes/broom.html)"
 " from [conda-forge](https://conda-forge.github.io/feedstocks) * "
-"[plyr](https://cran.r-project.org/web/packages/plyr/index.html), "
 "[devtools](https://cran.r-project.org/web/packages/devtools/index.html), "
 "[shiny](https://shiny.rstudio.com/), "
 "[rmarkdown](http://rmarkdown.rstudio.com/), "
 "[forecast](https://cran.r-project.org/web/packages/forecast/forecast.pdf),"
 " [rsqlite](https://cran.r-project.org/web/packages/RSQLite/index.html), "
-"[reshape2](https://cran.r-project.org/web/packages/reshape2/reshape2.pdf),"
-" "
 "[nycflights13](https://cran.r-project.org/web/packages/nycflights13/index.html),"
 " [caret](http://topepo.github.io/caret/index.html), "
+"[tidymodels](https://www.tidymodels.org/), "
 "[rcurl](https://cran.r-project.org/web/packages/RCurl/index.html), and "
 "[randomforest](https://cran.r-project.org/web/packages/randomForest/randomForest.pdf)"
 " packages from [conda-forge](https://conda-forge.github.io/feedstocks)"
 msgstr ""
 
-#: ../../using/selecting.md:70 d5dd0f75258846fd8342f1e2a7725987
+#: ../../using/selecting.md:70 8621160d3de5445cbcd4acf55f51f884
 msgid "### jupyter/scipy-notebook"
 msgstr ""
 
-#: ../../using/selecting.md:72 1f99d3f423564b24a224c5fbc9463f50
+#: ../../using/selecting.md:72 9c80029beeba4c95b020852843edf3e9
 msgid ""
 "[Source on GitHub](https://github.com/jupyter/docker-stacks/tree/master"
 "/scipy-notebook) | [Dockerfile commit history](https://github.com/jupyter"
@@ -1844,20 +1835,20 @@ msgid ""
 "image tags](https://hub.docker.com/r/jupyter/scipy-notebook/tags/)"
 msgstr ""
 
-#: ../../using/selecting.md:76 b0b8e60410d54a0a8e61b81ad2b0e053
+#: ../../using/selecting.md:76 02da16711e4b4566b6e37de12d09d56d
 msgid ""
 "`jupyter/scipy-notebook` includes popular packages from the scientific "
 "Python ecosystem."
 msgstr ""
 
-#: ../../using/selecting.md:79 44e16bbb83be42ee9bf928ed8fd3df6d
+#: ../../using/selecting.md:79 c1e58be6aae8425e9c4aa1e7b2d4ed8d
 msgid ""
 "[dask](https://dask.org/), [pandas](https://pandas.pydata.org/), "
 "[numexpr](https://github.com/pydata/numexpr), "
 "[matplotlib](https://matplotlib.org/), [scipy](https://www.scipy.org/),"
 msgstr ""
 
-#: ../../using/selecting.md:80 011d0e8085674348b5762cc1b134a04a
+#: ../../using/selecting.md:80 ca11e08ab966449bae9ea4905407c9c6
 msgid ""
 "[seaborn](https://seaborn.pydata.org/), [scikit-learn](http://scikit-"
 "learn.org/stable/), [scikit-image](http://scikit-image.org/), "
@@ -1883,11 +1874,11 @@ msgid ""
 "learning datasets"
 msgstr ""
 
-#: ../../using/selecting.md:89 ba44bb6c7f2b49869cfc7e40754eec05
+#: ../../using/selecting.md:89 6b31526da293441b865f7178ba9df55f
 msgid "### jupyter/tensorflow-notebook"
 msgstr ""
 
-#: ../../using/selecting.md:91 efca6348372e42edb772f1ef97b821ee
+#: ../../using/selecting.md:91 34541316ef584cbf8d4f884791e2191d
 msgid ""
 "[Source on GitHub](https://github.com/jupyter/docker-stacks/tree/master"
 "/tensorflow-notebook) | [Dockerfile commit "
@@ -1896,28 +1887,28 @@ msgid ""
 "tags](https://hub.docker.com/r/jupyter/tensorflow-notebook/tags/)"
 msgstr ""
 
-#: ../../using/selecting.md:95 d03818c3d56f481bb5cc5816a6de04ee
+#: ../../using/selecting.md:95 346c2ffbf2f24903a2458cd86c6b8c6c
 msgid ""
 "`jupyter/tensorflow-notebook` includes popular Python deep learning "
 "libraries."
 msgstr ""
 
 #: ../../using/selecting.md:97 ../../using/selecting.md:121
-#: 6f168e2c3a52406ea448ed643e42d011 afaa153b4f83434db3c1ab6976322c9f
+#: 08c165dc016a41d4b4eda75c8a04d8d3 ba5238a94abc4a02bf74f9e6820dbb67
 msgid "Everything in `jupyter/scipy-notebook` and its ancestor images"
 msgstr ""
 
-#: ../../using/selecting.md:98 4fa9cb42d6564ef68b6e875d787fb648
+#: ../../using/selecting.md:98 25cee7d1b39d476fb398d0bb6a15d277
 msgid ""
 "[tensorflow](https://www.tensorflow.org/) and [keras](https://keras.io/) "
 "machine learning libraries"
 msgstr ""
 
-#: ../../using/selecting.md:100 ebe67364dabd41c4b01c8083617367f4
+#: ../../using/selecting.md:100 71513c6ff8044344bc544f896626393a
 msgid "### jupyter/datascience-notebook"
 msgstr ""
 
-#: ../../using/selecting.md:102 d84a4d0bb92b462bba44ce1a1b58bebd
+#: ../../using/selecting.md:102 d7ba28ff13c5486ca0df5f556e28c2ab
 msgid ""
 "[Source on GitHub](https://github.com/jupyter/docker-stacks/tree/master"
 "/datascience-notebook) | [Dockerfile commit "
@@ -1926,40 +1917,40 @@ msgid ""
 "tags](https://hub.docker.com/r/jupyter/datascience-notebook/tags/)"
 msgstr ""
 
-#: ../../using/selecting.md:106 3cbbbd0c7e484529b4e1f2d40dac0c3e
+#: ../../using/selecting.md:106 cdecddc5b2b543b388ef2a62e39a1a9a
 msgid ""
 "`jupyter/datascience-notebook` includes libraries for data analysis from "
 "the Julia, Python, and R communities."
 msgstr ""
 
-#: ../../using/selecting.md:108 3d9b54c4b34f446784dc5a00f3e98e79
+#: ../../using/selecting.md:108 5f5aaa69612a4148ab1f577d107c14e3
 msgid ""
 "Everything in the `jupyter/scipy-notebook` and `jupyter/r-notebook` "
 "images, and their ancestor images"
 msgstr ""
 
-#: ../../using/selecting.md:109 e067bb7765724ba0a5a19e2f77d6d38b
+#: ../../using/selecting.md:109 38800b871d6544a7b816f7c61b0b57fb
 msgid "The [Julia](https://julialang.org/) compiler and base environment"
 msgstr ""
 
-#: ../../using/selecting.md:110 b135105f01a0401ca06f4028f53c44da
+#: ../../using/selecting.md:110 2e2c298ab3934ec186f45bba6b9a1ed5
 msgid ""
 "[IJulia](https://github.com/JuliaLang/IJulia.jl) to support Julia code in"
 " Jupyter notebooks"
 msgstr ""
 
-#: ../../using/selecting.md:111 cf1df7b17c7e4662a3431aac0736309c
+#: ../../using/selecting.md:111 b4a2f96d5e924ea082ec70f152e9db60
 msgid ""
 "[HDF5](https://github.com/JuliaIO/HDF5.jl), "
 "[Gadfly](http://gadflyjl.org/stable/), and "
 "[RDatasets](https://github.com/johnmyleswhite/RDatasets.jl) packages"
 msgstr ""
 
-#: ../../using/selecting.md:113 df8ae2fb1ae14f3cb9810977f703e347
+#: ../../using/selecting.md:113 ee8e4c61bfda46128d36968cef0d80ab
 msgid "### jupyter/pyspark-notebook"
 msgstr ""
 
-#: ../../using/selecting.md:115 f9080ed87653470ea31cedfa4d3ab43b
+#: ../../using/selecting.md:115 015442303b6a4c0d908da53d459aec5e
 msgid ""
 "[Source on GitHub](https://github.com/jupyter/docker-stacks/tree/master"
 "/pyspark-notebook) | [Dockerfile commit "
@@ -1968,25 +1959,19 @@ msgid ""
 "tags](https://hub.docker.com/r/jupyter/pyspark-notebook/tags/)"
 msgstr ""
 
-#: ../../using/selecting.md:119 e3bb269f65674421aa549644b0e8bb66
-msgid ""
-"`jupyter/pyspark-notebook` includes Python support for Apache Spark, "
-"optionally on Mesos."
+#: ../../using/selecting.md:119 325e98ff6c934db5ac9216a91d79fbb1
+msgid "`jupyter/pyspark-notebook` includes Python support for Apache Spark."
 msgstr ""
 
-#: ../../using/selecting.md:122 ca5bf90136cd4c8e872087764e1031be
+#: ../../using/selecting.md:122 991f5e25ee8c410f87b72669c99deefd
 msgid "[Apache Spark](https://spark.apache.org/) with Hadoop binaries"
 msgstr ""
 
-#: ../../using/selecting.md:123 495178f7f1a04f1ba85dc0bcab5059aa
-msgid "[Mesos](http://mesos.apache.org/) client libraries"
-msgstr ""
-
-#: ../../using/selecting.md:125 2625fa19524e47fda7c6bcb9eebcab4b
+#: ../../using/selecting.md:124 f5c97850fc624dac966e3a827f0bf2e0
 msgid "### jupyter/all-spark-notebook"
 msgstr ""
 
-#: ../../using/selecting.md:127 394ead2512224a70a18ba5b097afa2c1
+#: ../../using/selecting.md:126 200683e38bd84313bd659deb9d549058
 msgid ""
 "[Source on GitHub](https://github.com/jupyter/docker-stacks/tree/master"
 "/all-spark-notebook) | [Dockerfile commit "
@@ -1995,35 +1980,35 @@ msgid ""
 "tags](https://hub.docker.com/r/jupyter/all-spark-notebook/tags/)"
 msgstr ""
 
-#: ../../using/selecting.md:131 474277a0c10d4b7984b41f032414a6c7
+#: ../../using/selecting.md:130 fbd18bf3b8e54833a0d85949bc98511e
 msgid ""
 "`jupyter/all-spark-notebook` includes Python, R, and Scala support for "
-"Apache Spark, optionally on Mesos."
+"Apache Spark."
 msgstr ""
 
-#: ../../using/selecting.md:133 a59d069122c54a7cb6557a6bd2e1adf5
+#: ../../using/selecting.md:132 72a8603d86e644a0a79e618489dc2825
 msgid "Everything in `jupyter/pyspark-notebook` and its ancestor images"
 msgstr ""
 
-#: ../../using/selecting.md:135 f2abf662ad3b4f76b77a1e2320e3da96
+#: ../../using/selecting.md:134 ba08c857e4c345368a0ae4e85f8ffedd
 msgid ""
 "[Apache Toree](https://toree.apache.org/) and [spylon-"
 "kernel](https://github.com/maxpoint/spylon-kernel) to support Scala code "
 "in Jupyter notebooks"
 msgstr ""
 
-#: ../../using/selecting.md:136 082955087ece4d9880707c2d0adbcbcb
+#: ../../using/selecting.md:135 cefa3219da794d8e8f81b6ef4902492a
 msgid ""
 "[ggplot2](http://ggplot2.org/), [sparklyr](http://spark.rstudio.com/), "
 "and [rcurl](https://cran.r-project.org/web/packages/RCurl/index.html) "
 "packages"
 msgstr ""
 
-#: ../../using/selecting.md:138 70e282a7d7c24978933208c769591fd6
+#: ../../using/selecting.md:137 bcd1a4815297464ebec1a1adef2bd0e2
 msgid "### Image Relationships"
 msgstr ""
 
-#: ../../using/selecting.md:140 22fd38700e3e4d928f0a0dc73855588b
+#: ../../using/selecting.md:139 f483a4e6244e4e4cba269294b45a57db
 msgid ""
 "The following diagram depicts the build dependency tree of the core "
 "images. (i.e., the `FROM` statements in their Dockerfiles). Any given "
@@ -2031,7 +2016,7 @@ msgid ""
 "it."
 msgstr ""
 
-#: ../../using/selecting.md:143 550070de62ce4ae3b783f333b3ba4001
+#: ../../using/selecting.md:142 d65ae2ac741f4197ae31d7fb0415b9c0
 msgid ""
 "[![Image inheritance "
 "diagram](../images/inherit.svg)](http://interactive.blockdiag.com/?compression=deflate&src"
@@ -2040,11 +2025,11 @@ msgid ""
 "Zh7Z24OLLq2SjaxpvP10lX35vCf6pOxELFmUbQiUz4oQhYzMc3gCrRt2cWe_FKosmSjyFHC6OS1AwdQWCtyj7sfh523_BI9hKlQ25YdOFdv5fcH0kiEMA)"
 msgstr ""
 
-#: ../../using/selecting.md:146 0cc2d8c1cf754342b0f1a81f063dc41a
+#: ../../using/selecting.md:145 8982330232474dc5b790a062796378ef
 msgid "### Builds"
 msgstr ""
 
-#: ../../using/selecting.md:148 2226dbe216db4bbeb859ce01f6559729
+#: ../../using/selecting.md:147 d70aced1ba3d4b489e6526bc92b0ce8b
 msgid ""
 "Pull requests to the `jupyter/docker-stacks` repository trigger builds of"
 " all images on Travis CI. These images are for testing purposes only and "
@@ -2053,18 +2038,18 @@ msgid ""
 " Hub."
 msgstr ""
 
-#: ../../using/selecting.md:151 385d80cbed85452c9d970954e2898965
+#: ../../using/selecting.md:150 ebd20062230547339c23e19cdbf292a2
 msgid "### Versioning"
 msgstr ""
 
-#: ../../using/selecting.md:153 dbd6a1565ebd487da9dbc2b939855e5d
+#: ../../using/selecting.md:152 ba107422eb2045278d1a1a013b9afed8
 msgid ""
 "The `latest` tag in each Docker Hub repository tracks the master branch "
 "`HEAD` reference on GitHub. `latest` is a moving target, by definition, "
 "and will have backward-incompatible changes regularly."
 msgstr ""
 
-#: ../../using/selecting.md:156 9617ab9e6e224c1c9f11c1c10dfb2be4
+#: ../../using/selecting.md:155 3d22e4bedcf047cfb8ea185bf74dda8c
 msgid ""
 "Every image on Docker Hub also receives a 12-character tag which "
 "corresponds with the git commit SHA that triggered the image build. You "
@@ -2075,7 +2060,7 @@ msgid ""
 "stacks/tree/7c45ec67c8e7))."
 msgstr ""
 
-#: ../../using/selecting.md:160 dee310eae65e4820a270bcca496501fd
+#: ../../using/selecting.md:159 d38193c81981484d88aaf8e5aadbe2da
 msgid ""
 "You must refer to git-SHA image tags when stability and reproducibility "
 "are important in your work. (e.g. `FROM jupyter/scipy-"
@@ -2085,12 +2070,12 @@ msgid ""
 "library in a notebook)."
 msgstr ""
 
-#: ../../using/selecting.md:164 9aadad11ff5e494db4e79f4dac0db05e
+#: ../../using/selecting.md:163 798fc6ec691342b9a7396d71ec0eb596
 msgid "## Community Stacks"
 msgstr ""
 
 # a448d28293544f72b0e5de024b0a1ef5
-#: ../../using/selecting.md:166 b94441e6ba6e44f1b4008192e054ac86
+#: ../../using/selecting.md:165 7b19a5d7ab704ee68f49b5f3b8543784
 msgid ""
 "The core stacks are just a tiny sample of what's possible when combining "
 "Jupyter with other technologies. We encourage members of the Jupyter "
@@ -2098,14 +2083,14 @@ msgid ""
 "them below."
 msgstr ""
 
-#: ../../using/selecting.md:169 8f96c43b4051481d976228bcd573dd9f
+#: ../../using/selecting.md:168 6c36b4fa0f9d4b1d8bfc9c49109601f3
 msgid ""
 "[csharp-notebook is a community Jupyter Docker Stack image. Try C# in "
 "Jupyter Notebooks](https://github.com/tlinnet/csharp-notebook). The image"
 " includes more"
 msgstr ""
 
-#: ../../using/selecting.md:170 bac0a2e9f10b4ba4925a976faaaa262a
+#: ../../using/selecting.md:169 8b7ac72593fd418583528320ecd62724
 msgid ""
 "than 200 Jupyter Notebooks with example C# code and can readily be tried "
 "online via mybinder.org. Click here to launch "
@@ -2113,25 +2098,25 @@ msgid ""
 "/csharp-notebook/master)."
 msgstr ""
 
-#: ../../using/selecting.md:173 f493d401fb05465ba05978c3305ce21d
+#: ../../using/selecting.md:172 f0fd457bc4e540a5bcf0b1f9ecc795d7
 msgid ""
 "[education-notebook is a community Jupyter Docker Stack "
 "image](https://github.com/umsi-mads/education-notebook). The image "
 "includes nbgrader and RISE on top of"
 msgstr ""
 
-#: ../../using/selecting.md:174 6d69de717ff243549bfea490ad027088
+#: ../../using/selecting.md:173 e2f018b243774954b3035827432ae212
 msgid ""
 "the datascience-notebook image. Click here to launch it on "
 "[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh"
 "/umsi-mads/education-notebook/master)."
 msgstr ""
 
-#: ../../using/selecting.md:177 2d6025ab4e0240bca2b975a6ef77d34e
+#: ../../using/selecting.md:176 f3854e5636be438190139439db21380c
 msgid "__crosscompass/ihaskell-notebook__"
 msgstr ""
 
-#: ../../using/selecting.md:179 d77a8cb6482c4fd5b93f4de470c14670
+#: ../../using/selecting.md:178 443983b0f0ec4f2bb16d7bacf4ea4842
 msgid ""
 "[Source on GitHub](https://github.com/jamesdbrock/ihaskell-notebook) | "
 "[Dockerfile commit history](https://github.com/jamesdbrock/ihaskell-"
@@ -2139,14 +2124,14 @@ msgid ""
 "tags](https://hub.docker.com/r/crosscompass/ihaskell-notebook/tags)"
 msgstr ""
 
-#: ../../using/selecting.md:183 b1869870a0b442bfbbc433d3c5cc3f17
+#: ../../using/selecting.md:182 716e43657f274a1f98c0dc5a41749554
 msgid ""
 "`crosscompass/ihaskell-notebook` is based on "
 "[IHaskell](https://github.com/gibiansky/IHaskell). Includes popular "
 "packages and example notebooks."
 msgstr ""
 
-#: ../../using/selecting.md:185 5a329b3449104d75b44912870ce26a6e
+#: ../../using/selecting.md:184 4d3e9c142b124bdc9b684beec69948ac
 msgid ""
 "Try it on "
 "[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jamesdbrock"
@@ -2154,13 +2139,13 @@ msgid ""
 "notebook/master?urlpath=lab/tree/ihaskell_examples/ihaskell/IHaskell.ipynb)"
 msgstr ""
 
-#: ../../using/selecting.md:187 cb7ad2ee8373403cb9538ac90e985f1a
+#: ../../using/selecting.md:186 8beddf3651d04b59b210664bad313578
 msgid ""
 "[java-notebook is a community Jupyter Docker Stack "
 "image](https://github.com/jbindinga/java-notebook). The image includes"
 msgstr ""
 
-#: ../../using/selecting.md:188 5f7a76840f4a49639222a14f9d5df8aa
+#: ../../using/selecting.md:187 8ff3f333f3334273bd7df33ddd315764
 msgid ""
 "[IJava](https://github.com/SpencerPark/IJava) kernel on top of the "
 "minimal-notebook image. Click here to launch it on "
@@ -2168,28 +2153,28 @@ msgid ""
 "/java-notebook/master)."
 msgstr ""
 
-#: ../../using/selecting.md:191 aae8c31d9d5645a5aa098e1c8c562d20
+#: ../../using/selecting.md:190 b3e92048eda24002b553faf44c3e5778
 msgid ""
 "[sage-notebook](https://github.com/sharpTrick/sage-notebook) is a "
 "community Jupyter Docker Stack image with the "
 "[sagemath](https://sagemath.org) kernel on top of"
 msgstr ""
 
-#: ../../using/selecting.md:192 d3686164ea854f729d38aeae3ebcf938
+#: ../../using/selecting.md:191 0c14a7a8cc3848aabdcf8c187b77b24d
 msgid ""
 "the minimal-notebook image. Click here to launch it on "
 "[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sharpTrick"
 "/sage-notebook/master)."
 msgstr ""
 
-#: ../../using/selecting.md:195 e40f72141dbf42439da781ae2984223d
+#: ../../using/selecting.md:194 93404687914b4edc8d00b72d1aa8db35
 msgid ""
 "[GPU-Jupyter](https://github.com/iot-salzburg/gpu-jupyter/): Leverage "
 "Jupyter Notebooks with the power of your NVIDIA GPU and perform GPU "
 "calculations using"
 msgstr ""
 
-#: ../../using/selecting.md:196 8bf1597b7aad4808a0d2227c41538b8f
+#: ../../using/selecting.md:195 85cfe18d88544a0db10f0bdd64a409cc
 msgid ""
 "Tensorflow and Pytorch in collaborative notebooks. This is done by "
 "generating a Dockerfile, that consists of the **nvidia/cuda** base image,"
@@ -2198,57 +2183,60 @@ msgid ""
 "top of it."
 msgstr ""
 
-#: ../../using/selecting.md:201 be35752a55a242eca550d5995c31d540
+#: ../../using/selecting.md:200 756556d46e1442fe8708f44850de7f46
 msgid ""
 "[cgspatial-notebook](https://github.com/SCiO-systems/cgspatial-notebook) "
 "is a community Jupyter Docker Stack image. The image includes major "
 "geospatial Python &"
 msgstr ""
 
-#: ../../using/selecting.md:202 2d7e836501524a7b870b38611260b115
+#: ../../using/selecting.md:201 b650ff1b9a574aa4989dc96c701d0ccc
 msgid ""
 "R libraries on top of the datascience-notebook image. Try it on "
 "binder:[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh"
 "/SCiO-systems/cgspatial-notebook/master)"
 msgstr ""
 
-#: ../../using/selecting.md:206 0583ad2fb49d45adad5d02a327308a59
+#: ../../using/selecting.md:205 5b1d93a34afb4ae1818ebd24350eebf8
 msgid ""
 "See the [contributing guide](../contributing/stacks.md) for information "
 "about how to create your own Jupyter Docker Stack."
 msgstr ""
 
-#: ../../using/specifics.md:1 ccd51faa2356405486dc6f3ef2dce383
+#: ../../using/specifics.md:1 07ffbf4de0814245b67b520309bc5749
 msgid "# Image Specifics"
 msgstr ""
 
 # 06b0d21a881140a29e17e5b9fa5598ab
-#: ../../using/specifics.md:3 ec1f49a93c8a49fda1b187193c53bceb
+#: ../../using/specifics.md:3 1567bbd46e844d12912f88616bacb016
 msgid "This page provides details about features specific to one or more images."
 msgstr ""
 
-#: ../../using/specifics.md:5 9911be7f3543457cae37c828ed65694e
+#: ../../using/specifics.md:5 c70eaa9cc3a345bc8710c9b9d9526b10
 msgid "## Apache Spark"
 msgstr ""
 
-#: ../../using/specifics.md:7 fb27ff0ed24240ada5b0bc236f03d7a1
+#: ../../using/specifics.md:7 b4c20cfba8704daf9930f7e604ec6dd4
+msgid "**Specific Docker Image Options**"
+msgstr ""
+
+#: ../../using/specifics.md:9 84b4ac09900a425389939f018117c210
 msgid ""
-"**Specific Docker Image Options** * `-p 4040:4040` - The `jupyter"
-"/pyspark-notebook` and `jupyter/all-spark-notebook` images open [SparkUI "
-"(Spark Monitoring and Instrumentation "
+"`-p 4040:4040` - The `jupyter/pyspark-notebook` and `jupyter/all-spark-"
+"notebook` images open [SparkUI (Spark Monitoring and Instrumentation "
 "UI)](http://spark.apache.org/docs/latest/monitoring.html) at default port"
 " `4040`, this option map `4040` port inside docker container to `4040` "
 "port on host machine . Note every new spark context that is created is "
 "put onto an incrementing port (ie. 4040, 4041, 4042, etc.), and it might "
 "be necessary to open multiple ports. For example: `docker run -d -p "
-"8888:8888 -p 4040:4040 -p 4041:4041 jupyter/pyspark-notebook`"
+"8888:8888 -p 4040:4040 -p 4041:4041 jupyter/pyspark-notebook`."
 msgstr ""
 
-#: ../../using/specifics.md:10 23ba14af1b794b45ba7effe1ffc5a3d0
+#: ../../using/specifics.md:11 d7640c4dd8e340948ae033468d9969d1
 msgid "**Usage Examples**"
 msgstr ""
 
-#: ../../using/specifics.md:12 8a1bcc130cb34743a97282bb60e21dc2
+#: ../../using/specifics.md:13 ececb6f450d64b03b819b1dc558160e7
 msgid ""
 "The `jupyter/pyspark-notebook` and `jupyter/all-spark-notebook` images "
 "support the use of [Apache Spark](https://spark.apache.org/) in Python, "
@@ -2256,327 +2244,339 @@ msgid ""
 "how to get started using them."
 msgstr ""
 
-#: ../../using/specifics.md:14 6cf89d29db7441b6924fb7bcc61900e0
+#: ../../using/specifics.md:15 202b46725a004915a5b81d66968af618
 msgid "### Using Spark Local Mode"
 msgstr ""
 
-# 15a0171869f3437481b9dfb2aec3db00
-#: ../../using/specifics.md:16 15cbbb8ce4e64f85b8b8b648254be933
+#: ../../using/specifics.md:17 417c7972cb0d44c7863f207136aef29a
 msgid ""
-"Spark local mode is useful for experimentation on small data when you do "
-"not have a Spark cluster available."
+"Spark **local mode** is useful for experimentation on small data when you"
+" do not have a Spark cluster available."
 msgstr ""
 
-#: ../../using/specifics.md:18 ../../using/specifics.md:74
-#: c8e33c5b7f2c47d0bb3a30fe89a2d40b fde6e5eec6034513a7d758d41401d5b0
-msgid "#### In a Python Notebook"
+#: ../../using/specifics.md:19 ../../using/specifics.md:120
+#: 2a2f5c40b75f4cf198f77c1d83173db7 60e57e6c7ad3498c804355e75eae14b1
+msgid "#### In Python"
 msgstr ""
 
-#: ../../using/specifics.md:20 c594bf8ff2224aa9901c6786b60055e6
+#: ../../using/specifics.md:21 80e364cd60d546ec99e824142d6e7f22
+msgid "In a Python notebook."
+msgstr ""
+
+#: ../../using/specifics.md:23 ../../using/specifics.md:125
+#: 44e81e9cfd6943d7a0e41030bb442ba8 6d6f92b0bbdb46a786cd20102f44f898
+msgid "```python from pyspark.sql import SparkSession"
+msgstr ""
+
+#: ../../using/specifics.md:26 78428cdc812c456fa0ce1e19dfa2a291
 msgid ""
-"```python from pyspark.sql import SparkSession spark = "
-"SparkSession.builder.appName(\"SimpleApp\").getOrCreate() # do something "
-"to prove it works spark.sql('SELECT \"Test\" as c1').show() ```"
+"# Spark session & context spark = "
+"SparkSession.builder.master('local').getOrCreate() sc = "
+"spark.sparkContext"
 msgstr ""
 
-#: ../../using/specifics.md:27 ../../using/specifics.md:101
-#: db9a201e39f647a2b2d80de4170d469b ee15cf46d46d4cf3b871500ed5234706
-msgid "#### In a R Notebook"
-msgstr ""
-
-#: ../../using/specifics.md:29 ../../using/specifics.md:103
-#: 7781377d2d7549f09884ab3c553ecb58 7ee75af51f4148578595a2c92f66248d
-msgid "```r library(SparkR)"
-msgstr ""
-
-#: ../../using/specifics.md:32 502c776c9ca0425cad26360d22015921
-msgid "as <- sparkR.session(\"local[*]\")"
-msgstr ""
-
-#: ../../using/specifics.md:34 1f7ff5e49c0e4d1d9508ed30d48d827a
+#: ../../using/specifics.md:30 ../../using/specifics.md:132
+#: c8ee600e1c4f42b787dca928742c9fe5 ee3ff867f5f54a3884a85fb6b6d82693
 msgid ""
-"# do something to prove it works df <- as.DataFrame(iris) head(filter(df,"
-" df$Petal_Width > 0.2)) ```"
+"# Sum of the first 100 whole numbers rdd = sc.parallelize(range(100 + 1))"
+" rdd.sum() # 5050 ```"
 msgstr ""
 
-#: ../../using/specifics.md:39 ../../using/specifics.md:122
-#: 2d96a412c0484cac9774ffeb95d59e97 54af4dee621644ff9e529078093d12e9
-msgid "#### In a Spylon Kernel Scala Notebook"
+#: ../../using/specifics.md:36 ../../using/specifics.md:138
+#: 2048be669fcc4c11a449164e388a930a da447da9625e493598738954d8377cd2
+msgid "#### In R"
 msgstr ""
 
-#: ../../using/specifics.md:41 4fe87bcb3d914284a0e9400ed7bcb6fc
+#: ../../using/specifics.md:38 ../../using/specifics.md:140
+#: 4a16b380799d4ddbadfb3bd8ca98afae b54b70d5c6bd48c38adfca8796f6c60f
+msgid "In a R notebook with [SparkR][sparkr]."
+msgstr ""
+
+#: ../../using/specifics.md:40 ../../using/specifics.md:142
+#: 03d0079f301f435084905cc85ecb8893 2ed58dab8f6744dcbb5f49ef72066336
+msgid "```R library(SparkR)"
+msgstr ""
+
+#: ../../using/specifics.md:43 807bf7cba1e94223b858414c2cb7f6b6
+msgid "# Spark session & context sc <- sparkR.session(\"local\")"
+msgstr ""
+
+#: ../../using/specifics.md:46 ../../using/specifics.md:148
+#: 25bc490389f64b1ca408db91fcef2adb b91b7c6622074db096632b408fb78a98
+msgid ""
+"# Sum of the first 100 whole numbers sdf <- createDataFrame(list(1:100)) "
+"dapplyCollect(sdf,"
+msgstr ""
+
+#: ../../using/specifics.md:49 ../../using/specifics.md:151
+#: 735d62c0fd2f40c28ed6cc5bdb1163dd d93c3e23e7384bdf8145431af7ff2bab
+msgid "function(x) { x <- sum(x)}"
+msgstr ""
+
+#: ../../using/specifics.md:51 ../../using/specifics.md:153
+#: 37bc021e5d714393b23f7e2f46286546 9a5d76815be84e9a9c1050065fab985b
+msgid ")"
+msgstr ""
+
+#: ../../using/specifics.md:52 ../../using/specifics.md:71
+#: ../../using/specifics.md:154 ../../using/specifics.md:172
+#: 2d09d9065484404c87f6ceb3df639b78 993e45f0bb264e318f8307d3b83259c5
+#: b0e6503b1d3e4ea28229c55d2bdcbdfc f5423900115d4b568d0930648ab3fca4
+msgid "# 5050 ```"
+msgstr ""
+
+#: ../../using/specifics.md:55 ../../using/specifics.md:157
+#: 0b132588f67d4c8a9f7cf95e43111a5d c9cd0d3742c74f85b2bd91f4f311714b
+msgid "In a R notebook with [sparklyr][sparklyr]."
+msgstr ""
+
+#: ../../using/specifics.md:57 ../../using/specifics.md:159
+#: 16915d9896ba40ce9a1f31c5f212245d c772feabdb4e4ff28ffecdc53c88b30b
+msgid "```R library(sparklyr)"
+msgstr ""
+
+#: ../../using/specifics.md:60 5790d2cc43284150a18e88995604af29
+msgid ""
+"# Spark configuration conf <- spark_config() # Set the catalog "
+"implementation in-memory conf$spark.sql.catalogImplementation <- \"in-"
+"memory\""
+msgstr ""
+
+#: ../../using/specifics.md:65 aa39984eae40403cba93d453d2dc6272
+msgid ""
+"# Spark session & context sc <- spark_connect(master = \"local\", config "
+"= conf)"
+msgstr ""
+
+#: ../../using/specifics.md:68 ../../using/specifics.md:169
+#: 5d2c441446444b6ea58d207cddecfcde a857b73644ca445fa74c5de5213be954
+msgid "# Sum of the first 100 whole numbers sdf_len(sc, 100, repartition = 1) %>%"
+msgstr ""
+
+#: ../../using/specifics.md:70 ../../using/specifics.md:171
+#: 1bcad929979a48df8e320247028491c2 a00c0fe8f97a43878e9e749ba2bb8429
+msgid "spark_apply(function(e) sum(e))"
+msgstr ""
+
+#: ../../using/specifics.md:74 ../../using/specifics.md:175
+#: 001dd3e49731486a8b52ea518dd2ae37 af8d6628ad364bb5a482596c2b38ba9d
+msgid "#### In Scala"
+msgstr ""
+
+#: ../../using/specifics.md:76 ../../using/specifics.md:177
+#: 2f0e2a0ca718484792d8ac54594ef831 8feb37bd83cf4c9e847244411abcaf74
+msgid "##### In a Spylon Kernel"
+msgstr ""
+
+#: ../../using/specifics.md:78 ../../using/specifics.md:179
+#: 9ef433f854d84ee0b5946e8661da83b0 a91ce8f79f5e4c2cacb2625139a9bb05
 #, python-format
 msgid ""
 "Spylon kernel instantiates a `SparkContext` for you in variable `sc` "
 "after you configure Spark options in a `%%init_spark` magic cell."
 msgstr ""
 
-#: ../../using/specifics.md:43 8db82b7d3c63478c9d515337b496427e
+#: ../../using/specifics.md:81 2f5b8538a6f34c1ab41d0a6506331141
 #, python-format
 msgid ""
 "```python %%init_spark # Configure Spark to use a local master "
-"launcher.master = \"local[*]\" ```"
+"launcher.master = \"local\" ```"
 msgstr ""
 
-#: ../../using/specifics.md:49 ../../using/specifics.md:131
-#: 1cddff7806e3401680dd7168bd51e32f 5ef7ea5f2c1b4d2eb3fff32a0cc8d390
+#: ../../using/specifics.md:87 ../../using/specifics.md:98
+#: ../../using/specifics.md:188 03e25634a5af4a98b82ac09c43c2eab3
+#: 5ee1d7cd84a142149b0a6bd3d0e9b0b7 b09cfbdf2dbf40799f6338e9c089534f
 msgid ""
-"```scala // Now run Scala code that uses the initialized SparkContext in "
-"sc val rdd = sc.parallelize(0 to 999) rdd.takeSample(false, 5) ```"
+"```scala // Sum of the first 100 whole numbers val rdd = sc.parallelize(0"
+" to 100) rdd.sum() // 5050 ```"
 msgstr ""
 
-#: ../../using/specifics.md:55 ../../using/specifics.md:137
-#: 96f3e50230b24cba8e866a1aeb2800be a758fc07a3c1427792d45174f5eee461
-msgid "#### In an Apache Toree Scala Notebook"
+#: ../../using/specifics.md:94 3a276390f0534fb2b4946c85f4e0ce29
+msgid "##### In an Apache Toree Kernel"
 msgstr ""
 
-#: ../../using/specifics.md:57 e1e4d38084504510927d65b1d74914e3
+#: ../../using/specifics.md:96 7ee700272ef74bfcbb0a1eef9066d8ba
 msgid ""
 "Apache Toree instantiates a local `SparkContext` for you in variable `sc`"
 " when the kernel starts."
 msgstr ""
 
-#: ../../using/specifics.md:59 bda078a9bfa5427c81650a91a11f496b
-msgid "```scala val rdd = sc.parallelize(0 to 999) rdd.takeSample(false, 5) ```"
+#: ../../using/specifics.md:105 9f486a9048554fb99392be94e661a244
+msgid "### Connecting to a Spark Cluster in Standalone Mode"
 msgstr ""
 
-#: ../../using/specifics.md:64 359004c12d6b4385a5ec0c1efd7803a1
-msgid "### Connecting to a Spark Cluster on Mesos"
-msgstr ""
-
-# 4926e921fbd24baba9888b3f08cf4f51
-#: ../../using/specifics.md:66 999199148c5b48d287070ed5b7567a49
-msgid "This configuration allows your compute cluster to scale with your data."
-msgstr ""
-
-#: ../../using/specifics.md:68 d32c71a2b3334336b9b2684a5b1cf869
+#: ../../using/specifics.md:107 8f9959a3a9b9401cbc2738637be92415
 msgid ""
-"[Deploy Spark on Mesos](http://spark.apache.org/docs/latest/running-on-"
-"mesos.html)."
+"Connection to Spark Cluster on **[Standalone "
+"Mode](https://spark.apache.org/docs/latest/spark-standalone.html)** "
+"requires the following set of steps:"
 msgstr ""
 
-#: ../../using/specifics.md:69 0f8e737934384f4897eb70ce4e140d26
+# 2c728588b6df4753a0c08f969364a79a
+#: ../../using/specifics.md:109 cc7694b0e41244e4b22ab93b77194989
 msgid ""
-"Configure each slave with [the `--no-switch_user` "
-"flag](https://open.mesosphere.com/reference/mesos-slave/) or create the "
-"`$NB_USER` account on every slave node."
+"Verify that the docker image (check the Dockerfile) and the Spark Cluster"
+" which is being deployed, run the same version of Spark."
 msgstr ""
 
-#: ../../using/specifics.md:70 ../../using/specifics.md:166
-#: 9344bf4c2f844db99763545aab0886be fe14226acbe2488cbd5473f9c60b1bec
+#: ../../using/specifics.md:111 59ef9b4f250f465986a04051d9f0db02
+msgid ""
+"[Deploy Spark in Standalone Mode](http://spark.apache.org/docs/latest"
+"/spark-standalone.html)."
+msgstr ""
+
+#: ../../using/specifics.md:112 24f7e55b567a49f79a7d3a670dc65a89
 msgid ""
 "Run the Docker container with `--net=host` in a location that is network "
 "addressable by all of your Spark workers. (This is a [Spark networking "
 "requirement](http://spark.apache.org/docs/latest/cluster-"
-"overview.html#components).)"
+"overview.html#components).) * NOTE: When using `--net=host`, you must "
+"also use the flags `--pid=host -e TINI_SUBREAPER=true`. See "
+"https://github.com/jupyter/docker-stacks/issues/64 for details."
 msgstr ""
 
-#: ../../using/specifics.md:71 ../../using/specifics.md:167
-#: 224ab571dc184f20b39642c609dd6d38 715ecf1715b44a71925469cef441949e
+#: ../../using/specifics.md:118 98e8edc579854385bbac2634c4ef9733
 msgid ""
-"NOTE: When using `--net=host`, you must also use the flags `--pid=host -e"
-" TINI_SUBREAPER=true`. See https://github.com/jupyter/docker-"
-"stacks/issues/64 for details."
+"**Note**: In the following examples we are using the Spark master URL "
+"`spark://master:7077` that shall be replaced by the URL of the Spark "
+"master."
 msgstr ""
 
-# 16c4327879294075a64b4329f972321c
-#: ../../using/specifics.md:72 6ae6612c8bd04087ab5f697aa08883c4
-msgid "Follow the language specific instructions below."
-msgstr ""
-
-#: ../../using/specifics.md:76 7908d38676e2407a9073e9f0078814b5
+#: ../../using/specifics.md:122 143048c2c40d4fb7906bc1e4c43be688
 msgid ""
-"```python import os # make sure pyspark tells workers to use python3 not "
-"2 if both are installed os.environ['PYSPARK_PYTHON'] = '/usr/bin/python3'"
+"The **same Python version** need to be used on the notebook (where the "
+"driver is located) and on the Spark workers. The python version used at "
+"driver and worker side can be adjusted by setting the environment "
+"variables `PYSPARK_PYTHON` and / or `PYSPARK_DRIVER_PYTHON`, see [Spark "
+"Configuration][spark-conf] for more information."
 msgstr ""
 
-#: ../../using/specifics.md:81 f9d47a29e82f4e77ada49aeb7a603a29
-msgid "import pyspark conf = pyspark.SparkConf()"
-msgstr ""
-
-#: ../../using/specifics.md:84 29f5f55ead0f42769893fb382de67b25
+#: ../../using/specifics.md:128 d0ae2eece2ae4fbb8d1a1a948d479057
 msgid ""
-"# point to mesos master or zookeeper entry (e.g., "
-"zk://10.10.10.10:2181/mesos) conf.setMaster(\"mesos://10.10.10.10:5050\")"
-" # point to spark binary package in HDFS or on local filesystem on all "
-"slave # nodes (e.g., file:///opt/spark/spark-2.2.0-bin-hadoop2.7.tgz) "
-"conf.set(\"spark.executor.uri\", \"hdfs://10.10.10.10/spark/spark-2.2.0"
-"-bin-hadoop2.7.tgz\") # set other options as desired "
-"conf.set(\"spark.executor.memory\", \"8g\") "
-"conf.set(\"spark.core.connection.ack.wait.timeout\", \"1200\")"
+"# Spark session & context spark = "
+"SparkSession.builder.master('spark://master:7077').getOrCreate() sc = "
+"spark.sparkContext"
 msgstr ""
 
-#: ../../using/specifics.md:93 46e3531a28a24b4ba8a4f7c90bde8291
-msgid "# create the context sc = pyspark.SparkContext(conf=conf)"
+#: ../../using/specifics.md:145 57a2403ca0464eb98c9977072206c553
+msgid "# Spark session & context sc <- sparkR.session(\"spark://master:7077\")"
 msgstr ""
 
-#: ../../using/specifics.md:96 f418a36c67b341c2a8dea017f1a7068f
+#: ../../using/specifics.md:162 9a80bd117d044403af76b00f107d64c9
 msgid ""
-"# do something to prove it works rdd = sc.parallelize(range(100000000)) "
-"rdd.sumApprox(3) ```"
+"# Spark session & context # Spark configuration conf <- spark_config() # "
+"Set the catalog implementation in-memory "
+"conf$spark.sql.catalogImplementation <- \"in-memory\" sc <- "
+"spark_connect(master = \"spark://master:7077\", config = conf)"
 msgstr ""
 
-#: ../../using/specifics.md:106 47c86dfea8144d68936bda9600e032aa
-msgid ""
-"# Point to mesos master or zookeeper entry (e.g., "
-"zk://10.10.10.10:2181/mesos) # Point to spark binary package in HDFS or "
-"on local filesystem on all slave # nodes (e.g., "
-"file:///opt/spark/spark-2.2.0-bin-hadoop2.7.tgz) in sparkEnvir # Set "
-"other options in sparkEnvir sc <- "
-"sparkR.session(\"mesos://10.10.10.10:5050\", sparkEnvir=list("
-msgstr ""
-
-#: ../../using/specifics.md:111 14646d6f6f3e48bc9266f209c8dc86a3
-msgid ""
-"spark.executor.uri=\"hdfs://10.10.10.10/spark/spark-2.2.0-bin-"
-"hadoop2.7.tgz\", spark.executor.memory=\"8g\" )"
-msgstr ""
-
-#: ../../using/specifics.md:114 edc43e1a6a5947c49dd25e90014ddb35
-msgid ")"
-msgstr ""
-
-#: ../../using/specifics.md:116 82ca5dd11357401697dc553079027c84
-msgid ""
-"# do something to prove it works data(iris) df <- as.DataFrame(iris) "
-"head(filter(df, df$Petal_Width > 0.2)) ```"
-msgstr ""
-
-#: ../../using/specifics.md:124 1988b04b739e47a39fdb53d94ee0da03
+#: ../../using/specifics.md:182 c4ee4f7ac45c49d9940276baec7285f7
 #, python-format
 msgid ""
-"```python %%init_spark # Configure the location of the mesos master and "
-"spark distribution on HDFS launcher.master = \"mesos://10.10.10.10:5050\""
-" launcher.conf.spark.executor.uri=hdfs://10.10.10.10/spark/spark-2.2.0"
-"-bin-hadoop2.7.tgz ```"
+"```python %%init_spark # Configure Spark to use a local master "
+"launcher.master = \"spark://master:7077\" ```"
 msgstr ""
 
-#: ../../using/specifics.md:139 245960f56df94fb882ae4fd359a466fd
+#: ../../using/specifics.md:195 b1fe2d11917a4b4280ec8384c6ddd3fa
+msgid "##### In an Apache Toree Scala Notebook"
+msgstr ""
+
+#: ../../using/specifics.md:197 0610e703a6a2407392d386ec2fecbe03
 msgid ""
 "The Apache Toree kernel automatically creates a `SparkContext` when it "
 "starts based on configuration information from its command line arguments"
-" and environment variables. You can pass information about your Mesos "
-"cluster via the `SPARK_OPTS` environment variable when you spawn a "
-"container."
+" and environment variables. You can pass information about your cluster "
+"via the `SPARK_OPTS` environment variable when you spawn a container."
 msgstr ""
 
-# 3e3d5ec9fa554e75989856139938f4f8
-#: ../../using/specifics.md:141 d9cfe342d8454b78852687df23c3cca7
+#: ../../using/specifics.md:199 cba26809d1be41398a00413863a1de13
 msgid ""
-"For instance, to pass information about a Mesos master, Spark binary "
-"location in HDFS, and an executor options, you could start the container "
-"like so:"
+"For instance, to pass information about a standalone Spark master, you "
+"could start the container like so:"
 msgstr ""
 
-#: ../../using/specifics.md:143 7b626a3d70f3403393025e354a89d57a
+#: ../../using/specifics.md:201 58c49211d8bd42de8ef942c2115fac7c
 msgid ""
-"``` docker run -d -p 8888:8888 -e SPARK_OPTS='--"
-"master=mesos://10.10.10.10:5050 \\"
+"```bash docker run -d -p 8888:8888 -e SPARK_OPTS='--"
+"master=spark://master:7077' \\"
 msgstr ""
 
-#: ../../using/specifics.md:145 c01ba9d66df0441b86d4dabc76ab74b4
-msgid ""
-"--spark.executor.uri=hdfs://10.10.10.10/spark/spark-2.2.0-bin-"
-"hadoop2.7.tgz \\ --spark.executor.memory=8g' jupyter/all-spark-notebook"
+#: ../../using/specifics.md:203 1777768f9f144e0bb7b7e2a4ed8688c7
+msgid "jupyter/all-spark-notebook"
 msgstr ""
 
 # fa8494a4dde544109b9f6f49ac28178f
-#: ../../using/specifics.md:149 22dc890b6e57464bbd45de78ba310384
+#: ../../using/specifics.md:206 5e0877596a9f40beac0a2a43a10749d6
 msgid ""
 "Note that this is the same information expressed in a notebook in the "
 "Python case above. Once the kernel spec has your cluster information, you"
 " can test your cluster in an Apache Toree notebook like so:"
 msgstr ""
 
-#: ../../using/specifics.md:151 54ac85de1d804ce9bb3313cf50269bb2
+#: ../../using/specifics.md:208 0007384746e24dd5b4e1440a23697f1e
 msgid ""
 "```scala // should print the value of --master in the kernel spec "
 "println(sc.master)"
 msgstr ""
 
-#: ../../using/specifics.md:155 84453b7aa09b4cb0aff54f88335a4be2
+#: ../../using/specifics.md:212 baf0082e6a5e4ec09d7cd4cb654493f5
 msgid ""
-"// do something to prove it works val rdd = sc.parallelize(0 to 99999999)"
-" rdd.sum() ```"
+"// Sum of the first 100 whole numbers val rdd = sc.parallelize(0 to 100) "
+"rdd.sum() // 5050 ```"
 msgstr ""
 
-#: ../../using/specifics.md:160 a5dbd0ebe8274d50a3d172ffd4c39aa1
-msgid "### Connecting to a Spark Cluster in Standalone Mode"
-msgstr ""
-
-# 79db0ba4244a4701aa8dfe0053d5579c
-#: ../../using/specifics.md:162 9eab28cd52784f54b66d3f2df5762989
-msgid ""
-"Connection to Spark Cluster on Standalone Mode requires the following set"
-" of steps:"
-msgstr ""
-
-# 2c728588b6df4753a0c08f969364a79a
-#: ../../using/specifics.md:164 afa032197a8b4d9bb0e35dd762b3291f
-msgid ""
-"Verify that the docker image (check the Dockerfile) and the Spark Cluster"
-" which is being deployed, run the same version of Spark."
-msgstr ""
-
-#: ../../using/specifics.md:165 aa501c214f3047dabe083f37ab958aae
-msgid ""
-"[Deploy Spark in Standalone Mode](http://spark.apache.org/docs/latest"
-"/spark-standalone.html)."
-msgstr ""
-
-# 3c781f06114240e28dcdb0c40a5d5cf5
-#: ../../using/specifics.md:168 c06a5f8302c948248bc5e5d106ecb34b
-msgid ""
-"The language specific instructions are almost same as mentioned above for"
-" Mesos, only the master url would now be something like "
-"spark://10.10.10.10:7077"
-msgstr ""
-
-#: ../../using/specifics.md:170 460f68c595ab47ae9214cf641c0847f4
+#: ../../using/specifics.md:218 345627d44a31460f95e51f4a7cef5164
 msgid "## Tensorflow"
 msgstr ""
 
-#: ../../using/specifics.md:172 8233f6aece3d40888e85ac995844524f
+#: ../../using/specifics.md:220 5deb95762e8d422fa0f236c62293d1d3
 msgid ""
 "The `jupyter/tensorflow-notebook` image supports the use of "
 "[Tensorflow](https://www.tensorflow.org/) in single machine or "
 "distributed mode."
 msgstr ""
 
-#: ../../using/specifics.md:174 caa67f5184c64be790c073e963d053df
+#: ../../using/specifics.md:223 3f6fbe54d10c4de28673367de95364a1
 msgid "### Single Machine Mode"
 msgstr ""
 
-#: ../../using/specifics.md:176 ../../using/specifics.md:190
-#: 8545f987e8694d8db154913a3804e3ab f53dba75b4bc4f2aa0de4af8bed27db9
+#: ../../using/specifics.md:225 ../../using/specifics.md:239
+#: 0ee2958326d74b97ae4da9aef8507a7d 67105c974c0e4bb0a132f9c0387054b4
 msgid "```python import tensorflow as tf"
 msgstr ""
 
-#: ../../using/specifics.md:179 6ce58717991349b5b3535d927baf756e
+#: ../../using/specifics.md:228 74d61fffbc4f4ad5997f745dae0085c8
 msgid "hello = tf.Variable('Hello World!')"
 msgstr ""
 
-#: ../../using/specifics.md:181 0ab2d034e71041fabed34c52efc537e5
+#: ../../using/specifics.md:230 9428a502054d4835b3c97ca1a9ff39f0
 msgid "sess = tf.Session() init = tf.global_variables_initializer()"
 msgstr ""
 
-#: ../../using/specifics.md:184 ../../using/specifics.md:199
-#: b3cecb06d6234d76a9eb88f99f74ecd0 c01b32291aef4ebdaf3393b9beda3707
+#: ../../using/specifics.md:233 ../../using/specifics.md:248
+#: 04b95721fe4240aaabffe3bef2aaf03a fe4e14d3105c4e8a9089afc375c6943e
 msgid "sess.run(init) sess.run(hello) ```"
 msgstr ""
 
-#: ../../using/specifics.md:188 6e89d0affb794ea0a453a865ccf38dce
+#: ../../using/specifics.md:237 47c08dbd97a2498e868d9b9d025dd4d9
 msgid "### Distributed Mode"
 msgstr ""
 
-#: ../../using/specifics.md:193 42a81db36b564d0c9050c64811f6c96b
+#: ../../using/specifics.md:242 0eed5020c1f8410b942e75db874fc100
 msgid "hello = tf.Variable('Hello Distributed World!')"
 msgstr ""
 
-#: ../../using/specifics.md:195 c1c7f9feee7e434592837ec56a24d57c
+#: ../../using/specifics.md:244 653b58f6bd1447d5847ecbae613567eb
 msgid ""
 "server = tf.train.Server.create_local_server() sess = "
 "tf.Session(server.target) init = tf.global_variables_initializer()"
+msgstr ""
+
+#: ../../using/specifics.md:252 264b97cd033743d28dbbb2166a989ff9
+msgid ""
+"[sparkr]: https://spark.apache.org/docs/latest/sparkr.html [sparklyr]: "
+"https://spark.rstudio.com/ [spark-conf]: "
+"https://spark.apache.org/docs/latest/configuration.html"
 msgstr ""
 
 # 5e06096348924f51881d05f984e91381
@@ -4178,5 +4178,519 @@ msgstr ""
 #~ "Good!](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jamesdbrock"
 #~ "/learn-you-a-haskell-"
 #~ "notebook/master?urlpath=lab/tree/learn_you_a_haskell/00-preface.ipynb)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`-e NB_USER=jovyan` - Instructs the "
+#~ "startup script to change the default "
+#~ "container username from `jovyan` to the"
+#~ " provided value. Causes the script to"
+#~ " rename the `jovyan` user home "
+#~ "folder. For this option to take "
+#~ "effect, you must run the container "
+#~ "with `--user root` and set the "
+#~ "working directory `-w /home/$NB_USER`. This"
+#~ " feature is useful when mounting host"
+#~ " volumes with specific home folder."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`jupyter/pyspark-notebook` includes Python "
+#~ "support for Apache Spark, optionally on"
+#~ " Mesos."
+#~ msgstr ""
+
+#~ msgid "[Mesos](http://mesos.apache.org/) client libraries"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`jupyter/all-spark-notebook` includes Python,"
+#~ " R, and Scala support for Apache "
+#~ "Spark, optionally on Mesos."
+#~ msgstr ""
+
+#~ msgid "### Connecting to a Spark Cluster on Mesos"
+#~ msgstr ""
+
+# 4926e921fbd24baba9888b3f08cf4f51
+#~ msgid "This configuration allows your compute cluster to scale with your data."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Deploy Spark on "
+#~ "Mesos](http://spark.apache.org/docs/latest/running-on-"
+#~ "mesos.html)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Configure each slave with [the `--no-"
+#~ "switch_user` flag](https://open.mesosphere.com/reference"
+#~ "/mesos-slave/) or create the `$NB_USER` "
+#~ "account on every slave node."
+#~ msgstr ""
+
+# 16c4327879294075a64b4329f972321c
+#~ msgid "Follow the language specific instructions below."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "# point to mesos master or "
+#~ "zookeeper entry (e.g., zk://10.10.10.10:2181/mesos)"
+#~ " conf.setMaster(\"mesos://10.10.10.10:5050\") # point"
+#~ " to spark binary package in HDFS "
+#~ "or on local filesystem on all "
+#~ "slave # nodes (e.g., "
+#~ "file:///opt/spark/spark-2.2.0-bin-hadoop2.7.tgz) "
+#~ "conf.set(\"spark.executor.uri\", "
+#~ "\"hdfs://10.10.10.10/spark/spark-2.2.0-bin-hadoop2.7.tgz\") "
+#~ "# set other options as desired "
+#~ "conf.set(\"spark.executor.memory\", \"8g\") "
+#~ "conf.set(\"spark.core.connection.ack.wait.timeout\", \"1200\")"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "# Point to mesos master or "
+#~ "zookeeper entry (e.g., zk://10.10.10.10:2181/mesos)"
+#~ " # Point to spark binary package "
+#~ "in HDFS or on local filesystem on"
+#~ " all slave # nodes (e.g., "
+#~ "file:///opt/spark/spark-2.2.0-bin-hadoop2.7.tgz) in "
+#~ "sparkEnvir # Set other options in "
+#~ "sparkEnvir sc <- "
+#~ "sparkR.session(\"mesos://10.10.10.10:5050\", sparkEnvir=list("
+#~ msgstr ""
+
+#~ msgid ""
+#~ "spark.executor.uri=\"hdfs://10.10.10.10/spark/spark-2.2.0-bin-"
+#~ "hadoop2.7.tgz\", spark.executor.memory=\"8g\" )"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "```python %%init_spark # Configure the "
+#~ "location of the mesos master and "
+#~ "spark distribution on HDFS launcher.master "
+#~ "= \"mesos://10.10.10.10:5050\" "
+#~ "launcher.conf.spark.executor.uri=hdfs://10.10.10.10/spark/spark-2.2.0"
+#~ "-bin-hadoop2.7.tgz ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Apache Toree kernel automatically "
+#~ "creates a `SparkContext` when it starts"
+#~ " based on configuration information from"
+#~ " its command line arguments and "
+#~ "environment variables. You can pass "
+#~ "information about your Mesos cluster via"
+#~ " the `SPARK_OPTS` environment variable when"
+#~ " you spawn a container."
+#~ msgstr ""
+
+# 3e3d5ec9fa554e75989856139938f4f8
+#~ msgid ""
+#~ "For instance, to pass information about"
+#~ " a Mesos master, Spark binary "
+#~ "location in HDFS, and an executor "
+#~ "options, you could start the container"
+#~ " like so:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` docker run -d -p 8888:8888 -e"
+#~ " SPARK_OPTS='--master=mesos://10.10.10.10:5050 \\"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "--spark.executor.uri=hdfs://10.10.10.10/spark/spark-2.2.0-bin-"
+#~ "hadoop2.7.tgz \\ --spark.executor.memory=8g' jupyter"
+#~ "/all-spark-notebook"
+#~ msgstr ""
+
+# 3c781f06114240e28dcdb0c40a5d5cf5
+#~ msgid ""
+#~ "The language specific instructions are "
+#~ "almost same as mentioned above for "
+#~ "Mesos, only the master url would "
+#~ "now be something like spark://10.10.10.10:7077"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Specific Docker Image Options** * `-p"
+#~ " 4040:4040` - The `jupyter/pyspark-"
+#~ "notebook` and `jupyter/all-spark-notebook` "
+#~ "images open [SparkUI (Spark Monitoring "
+#~ "and Instrumentation "
+#~ "UI)](http://spark.apache.org/docs/latest/monitoring.html) at "
+#~ "default port `4040`, this option map "
+#~ "`4040` port inside docker container to"
+#~ " `4040` port on host machine . "
+#~ "Note every new spark context that "
+#~ "is created is put onto an "
+#~ "incrementing port (ie. 4040, 4041, 4042,"
+#~ " etc.), and it might be necessary "
+#~ "to open multiple ports. For example: "
+#~ "`docker run -d -p 8888:8888 -p "
+#~ "4040:4040 -p 4041:4041 jupyter/pyspark-"
+#~ "notebook`"
+#~ msgstr ""
+
+# 15a0171869f3437481b9dfb2aec3db00
+#~ msgid ""
+#~ "Spark local mode is useful for "
+#~ "experimentation on small data when you"
+#~ " do not have a Spark cluster "
+#~ "available."
+#~ msgstr ""
+
+#~ msgid "#### In a Python Notebook"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "```python from pyspark.sql import SparkSession"
+#~ " spark = "
+#~ "SparkSession.builder.appName(\"SimpleApp\").getOrCreate() # "
+#~ "do something to prove it works "
+#~ "spark.sql('SELECT \"Test\" as c1').show() ```"
+#~ msgstr ""
+
+#~ msgid "#### In a R Notebook"
+#~ msgstr ""
+
+#~ msgid "```r library(SparkR)"
+#~ msgstr ""
+
+#~ msgid "as <- sparkR.session(\"local[*]\")"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "# do something to prove it works"
+#~ " df <- as.DataFrame(iris) head(filter(df, "
+#~ "df$Petal_Width > 0.2)) ```"
+#~ msgstr ""
+
+#~ msgid "#### In a Spylon Kernel Scala Notebook"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "```python %%init_spark # Configure Spark "
+#~ "to use a local master launcher.master"
+#~ " = \"local[*]\" ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "```scala // Now run Scala code "
+#~ "that uses the initialized SparkContext "
+#~ "in sc val rdd = sc.parallelize(0 "
+#~ "to 999) rdd.takeSample(false, 5) ```"
+#~ msgstr ""
+
+#~ msgid "#### In an Apache Toree Scala Notebook"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "```scala val rdd = sc.parallelize(0 to"
+#~ " 999) rdd.takeSample(false, 5) ```"
+#~ msgstr ""
+
+# 79db0ba4244a4701aa8dfe0053d5579c
+#~ msgid ""
+#~ "Connection to Spark Cluster on "
+#~ "Standalone Mode requires the following "
+#~ "set of steps:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "```python import os # make sure "
+#~ "pyspark tells workers to use python3 "
+#~ "not 2 if both are installed "
+#~ "os.environ['PYSPARK_PYTHON'] = '/usr/bin/python3'"
+#~ msgstr ""
+
+#~ msgid "import pyspark conf = pyspark.SparkConf()"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "# Point to spark master "
+#~ "conf.setMaster(\"spark://10.10.10.10:7070\") # point "
+#~ "to spark binary package in HDFS or"
+#~ " on local filesystem on all slave "
+#~ "# nodes (e.g., file:///opt/spark/spark-2.2.0-bin-"
+#~ "hadoop2.7.tgz) conf.set(\"spark.executor.uri\", "
+#~ "\"hdfs://10.10.10.10/spark/spark-2.2.0-bin-hadoop2.7.tgz\") "
+#~ "# set other options as desired "
+#~ "conf.set(\"spark.executor.memory\", \"8g\") "
+#~ "conf.set(\"spark.core.connection.ack.wait.timeout\", \"1200\")"
+#~ msgstr ""
+
+#~ msgid "# create the context sc = pyspark.SparkContext(conf=conf)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "# do something to prove it works"
+#~ " rdd = sc.parallelize(range(100000000)) "
+#~ "rdd.sumApprox(3) ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "# Point to spark master # Point"
+#~ " to spark binary package in HDFS "
+#~ "or on local filesystem on all "
+#~ "worker # nodes (e.g., "
+#~ "file:///opt/spark/spark-2.2.0-bin-hadoop2.7.tgz) in "
+#~ "sparkEnvir # Set other options in "
+#~ "sparkEnvir sc <- "
+#~ "sparkR.session(\"spark://10.10.10.10:7070\", sparkEnvir=list("
+#~ msgstr ""
+
+#~ msgid ""
+#~ "spark.executor.uri=\"hdfs://10.10.10.10/spark/spark-2.4.3-bin-"
+#~ "hadoop2.7.tgz\", spark.executor.memory=\"8g\" )"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "# do something to prove it works"
+#~ " data(iris) df <- as.DataFrame(iris) "
+#~ "head(filter(df, df$Petal_Width > 0.2)) ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "```python %%init_spark # Point to spark"
+#~ " master launcher.master = "
+#~ "\"spark://10.10.10.10:7070\" "
+#~ "launcher.conf.spark.executor.uri=hdfs://10.10.10.10/spark/spark-2.4.3"
+#~ "-bin-hadoop2.7.tgz ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For instance, to pass information about"
+#~ " a standalone Spark master, Spark "
+#~ "binary location in HDFS, and an "
+#~ "executor options, you could start the"
+#~ " container like so:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` docker run -d -p 8888:8888 -e"
+#~ " SPARK_OPTS='--master=spark://10.10.10.10:7070 \\"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "--spark.executor.uri=hdfs://10.10.10.10/spark/spark-2.4.3-bin-"
+#~ "hadoop2.7.tgz \\ --spark.executor.memory=8g' jupyter"
+#~ "/all-spark-notebook"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "// do something to prove it works"
+#~ " val rdd = sc.parallelize(0 to "
+#~ "99999999) rdd.sum() ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` docker run -d -p 8888:8888 "
+#~ "jupyter/base-notebook start-notebook.sh "
+#~ "--NotebookApp.password='sha1:74ba40f8a388:c913541b7ee99d15d5ed31d4226bf7838f83a50e'"
+#~ " ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` docker run -d -p 8888:8888 "
+#~ "jupyter/base-notebook start-notebook.sh "
+#~ "--NotebookApp.base_url=/some/path ```"
+#~ msgstr ""
+
+#~ msgid "``` docker run -d -p 8888:8888 \\"
+#~ msgstr ""
+
+#~ msgid "``` docker run -it --rm jupyter/base-notebook start.sh ipython ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` docker run -it --rm -p "
+#~ "8888:8888 jupyter/base-notebook start.sh "
+#~ "jupyter lab ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` # install a package into the"
+#~ " default (python 3.x) environment pip "
+#~ "install some-package conda install "
+#~ "some-package ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` docker run -it -e GRANT_SUDO=yes "
+#~ "--user root jupyter/minimal-notebook ```"
+#~ msgstr ""
+
+#~ msgid "``` # Choose your desired base image FROM jupyter/scipy-notebook:latest"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` # Choose your desired base "
+#~ "image FROM jupyter/minimal-notebook:latest"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "And build the image as: ``` docker"
+#~ " build -t jupyter/scipy-dasklabextension:latest"
+#~ " . ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Once built, run using the command: "
+#~ "``` docker run -it --rm -p "
+#~ "8888:8888 -p 8787:8787 jupyter/scipy-"
+#~ "dasklabextension:latest ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` # Add Live slideshows with "
+#~ "RISE RUN conda install -c damianavila82"
+#~ " rise ```"
+#~ msgstr ""
+
+#~ msgid "``` %%bash conda install -y gcc pip install xgboost"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` FROM  jupyter/base-notebook:5ded1de07260 "
+#~ "RUN pip install jupyterhub==0.8.0b1 ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` import os os.environ['PYSPARK_SUBMIT_ARGS'] "
+#~ "= '--jars /home/jovyan/spark-streaming-"
+#~ "kafka-assembly_2.10-1.6.1.jar pyspark-shell' "
+#~ "import pyspark from pyspark.streaming.kafka "
+#~ "import KafkaUtils from pyspark.streaming "
+#~ "import StreamingContext sc = "
+#~ "pyspark.SparkContext() ssc = StreamingContext(sc,1)"
+#~ " broker = \"<my_broker_ip>\" directKafkaStream"
+#~ " = KafkaUtils.createDirectStream(ssc, [\"test1\"], "
+#~ "{\"metadata.broker.list\": broker}) "
+#~ "directKafkaStream.pprint() ssc.start() ```"
+#~ msgstr ""
+
+#~ msgid "``` FROM jupyter/all-spark-notebook"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` docker run jupyter/base-"
+#~ "notebook:6d2a05346196 start.sh jupyter lab "
+#~ "--LabApp.token='' ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` docker run jupyter/base-"
+#~ "notebook:6d2a05346196 start.sh jupyter notebook "
+#~ "--NotebookApp.token='' ```"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` # Update with your base image"
+#~ " of choice FROM jupyter/minimal-"
+#~ "notebook:latest"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``` ARG BASE_CONTAINER=jupyter/scipy-notebook "
+#~ "FROM jupyter/scipy-notebook:latest"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Run the Docker container with "
+#~ "`--net=host` in a location that is "
+#~ "network addressable by all of your "
+#~ "Spark workers. (This is a [Spark "
+#~ "networking requirement](http://spark.apache.org/docs/latest"
+#~ "/cluster-overview.html#components).)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NOTE: When using `--net=host`, you must"
+#~ " also use the flags `--pid=host -e"
+#~ " TINI_SUBREAPER=true`. See https://github.com/jupyter"
+#~ "/docker-stacks/issues/64 for details."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "# Workaround for a mandb bug, "
+#~ "should be fixed in mandb > 2.8.5"
+#~ " # https://git.savannah.gnu.org/cgit/man-"
+#~ "db.git/commit/?id=8197d7824f814c5d4b992b4c8730b5b0f7ec589a RUN"
+#~ " echo \"MANPATH_MAP ${CONDA_DIR}/bin "
+#~ "${CONDA_DIR}/man\" >> /etc/manpath.config \\"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Adding the documentation on top of "
+#~ "an existing singleuser image wastes a"
+#~ " lot of space and requires "
+#~ "reinstalling every system package, which "
+#~ "can take additional time and bandwidth;"
+#~ " the `datascience-notebook` image has "
+#~ "been shown to grow by almost 3GB"
+#~ " when adding manapages in this way."
+#~ " Enabling manpages in the base Ubuntu"
+#~ " layer prevents this container bloat:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "```Dockerfile # Ubuntu 18.04 (bionic) "
+#~ "from 2018-05-26 # https://github.com/docker-"
+#~ "library/official-"
+#~ "images/commit/aac6a45b9eb2bffb8102353c350d341a410fb169 ARG "
+#~ "BASE_CONTAINER=ubuntu:bionic-20180526@sha256:c8c275751219dadad8fa56b3ac41ca6cb22219ff117ca98fe82b42f24e1ba64e"
+#~ " FROM $BASE_CONTAINER"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "ENV DEBIAN_FRONTEND noninteractive # Remove"
+#~ " the manpage blacklist, install man, "
+#~ "install docs RUN rm "
+#~ "/etc/dpkg/dpkg.cfg.d/excludes \\"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "# Workaround for a mandb bug, "
+#~ "should be fixed in mandb > 2.8.5"
+#~ " # https://git.savannah.gnu.org/cgit/man-"
+#~ "db.git/commit/?id=8197d7824f814c5d4b992b4c8730b5b0f7ec589a RUN"
+#~ " echo \"MANPATH_MAP /opt/conda/bin "
+#~ "/opt/conda/man\" >> /etc/manpath.config \\"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "&& echo \"MANPATH_MAP /opt/conda/bin "
+#~ "/opt/conda/share/man\" >> /etc/manpath.config"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[tidyr](http://tidyr.tidyverse.org/), "
+#~ "[readr](http://readr.tidyverse.org/), "
+#~ "[purrr](http://purrr.tidyverse.org/), "
+#~ "[tibble](http://tibble.tidyverse.org/), "
+#~ "[stringr](http://stringr.tidyverse.org/), "
+#~ "[lubridate](http://lubridate.tidyverse.org/), and "
+#~ "[broom](https://cran.r-project.org/web/packages/broom/vignettes/broom.html)"
+#~ " from [conda-forge](https://conda-"
+#~ "forge.github.io/feedstocks) * "
+#~ "[plyr](https://cran.r-project.org/web/packages/plyr/index.html), "
+#~ "[devtools](https://cran.r-project.org/web/packages/devtools/index.html),"
+#~ " [shiny](https://shiny.rstudio.com/), "
+#~ "[rmarkdown](http://rmarkdown.rstudio.com/), "
+#~ "[forecast](https://cran.r-project.org/web/packages/forecast/forecast.pdf),"
+#~ " "
+#~ "[rsqlite](https://cran.r-project.org/web/packages/RSQLite/index.html),"
+#~ " "
+#~ "[reshape2](https://cran.r-project.org/web/packages/reshape2/reshape2.pdf),"
+#~ " "
+#~ "[nycflights13](https://cran.r-project.org/web/packages/nycflights13/index.html),"
+#~ " [caret](http://topepo.github.io/caret/index.html), "
+#~ "[rcurl](https://cran.r-project.org/web/packages/RCurl/index.html), "
+#~ "and "
+#~ "[randomforest](https://cran.r-project.org/web/packages/randomForest/randomForest.pdf)"
+#~ " packages from [conda-forge](https://conda-"
+#~ "forge.github.io/feedstocks)"
 #~ msgstr ""
 
