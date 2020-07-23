@@ -25,5 +25,5 @@ graphviz
 pyftpdlib
 imbalanced-learn
 catboost
-selenium 
+selenium
 pyarrow
